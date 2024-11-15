@@ -11,6 +11,7 @@ for i in range(my_Time, 0, -1):
     minutes = int (i / 60 ) % 60
     hours = int ( i / 3600) % 24
     days = int (i / 86400) % 31
-    print(f"{days:02}:{hours:02}:{minutes:00}:{seconds:02}")
+    print(f"{days:02}:{hours:02}:{minutes:02}:{seconds:02}")
     time.sleep(1)
 print("TIMES UP!")
+

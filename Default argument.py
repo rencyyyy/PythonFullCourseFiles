@@ -19,7 +19,7 @@ print(net_price(200, 0.3)) # even alisin ko yung isang value rito good pa rin da
 import time
 
 def count(end,start=0):
-    for x in range(start,end+1):                         # default always increment
+    for x in range(start,end,+1):                         # default always increment
         print(x)
         time.sleep(1)
     print("Done!")

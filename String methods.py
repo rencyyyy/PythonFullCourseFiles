@@ -28,13 +28,13 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-# phone_num = input("Enter your phone number: ")
-#
-# phone_num = phone_num.replace("-", " ")                     # Replace - with space
-# phone_num = phone_num.replace("-", "")                      # Remove all - within your phone number
-# phone_num = phone_num.count("-")                                         # Count how many - within your phone number
-# print(phone_num)
-# print(type(phone_num))
+phone_num = input("Enter your phone number: ")
+
+phone_num = phone_num.replace("-", " ")                    # Replace - with space
+phone_num = phone_num.replace("-", "")                     # Remove all - within your phone number
+phone_num = phone_num.count("-")                           # Count how many - within your phone number
+print(phone_num)
+print(type(phone_num))
 #-----------------------------------------------------------------------------------------------------------------------
 
 # help(str) - Help on class str in module built ins

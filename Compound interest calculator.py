@@ -37,3 +37,6 @@ print(f"Your balance after {time} years is P{total:,.2f}")
 
 
 
+
+
+

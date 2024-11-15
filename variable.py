@@ -5,7 +5,7 @@
 first_name = "Rency"
 last_name = "Delos Santos"
 full_name = (first_name + " " + last_name)
-food = "Baby Ruth"
+food = "Banana"
 email = "rencydelossantos020@gmail.com"
 print(f"Hello {first_name}")
 print(f"My name is {first_name} and my favorite food is {food}")

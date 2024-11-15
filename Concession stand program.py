@@ -43,3 +43,5 @@ print(f"Total is: ₱{total:.2f}")               # print the total price of your
 
 
 
+
+

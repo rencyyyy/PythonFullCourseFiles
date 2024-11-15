@@ -8,21 +8,22 @@
 # print(f"You are {age} years old")
 # print(type(age))
 
-# Exercise 1 - Rectangle Area Calc
-length = float(input("Enter the length of a rectangle: "))
-width = float(input("Enter the width of a rectangle: "))
-area = length * width
-
-print(f"The area of the rectangle is {area}cm²")          # numLock + Alt + 0178 = ² (power)
-print()
-# Exercise 2 - Shopping Cart Program
-item = input("What item do you want to buy?: ")
-price = float(input("How much is this item?: "))
-quantity = int(input("How many items that you want to buy?: "))
-total = price * quantity
-print()
-print(f"You have bought {quantity} x {item}/s")
-print(f"Please pay: ₱{total}")
+# # Exercise 1 - Rectangle Area Calc A = L * W
+# length = float(input("Enter the length of a rectangle: "))
+# width = float(input("Enter the width of a rectangle: "))
+# area = length * width
+#
+# print(f"The area of the rectangle is {area}cm²")          # numLock + Alt + 0178 = ² (power) or squared
+# print()
+#
+# # Exercise 2 - Shopping Cart Program
+# item = input("What item do you want to buy?: ")
+# price = float(input("How much is this item?: "))
+# quantity = int(input("How many items that you want to buy?: "))
+# total = price * quantity
+# print()
+# print(f"You have bought {quantity} x {item}/s")
+# print(f"Please pay: ₱{total}")
 
 
 item = input("Enter item to buy: ")

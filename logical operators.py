@@ -40,3 +40,5 @@ if temperature >= 0 and temperature <= 30:
 elif temperature < 0 or temperature > 30:
     print("The temperature is not normal")
     print("Dont go outside")
+
+

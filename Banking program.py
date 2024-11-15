@@ -5,7 +5,7 @@ def show_balance(balance):
     print(f"Your total balance is ₱{balance:,.2f}")
     print()
 
-def deposit(balance):
+def deposit():
     amount = float(input("Enter the amount to deposit: "))
     if amount <= 0:
         print()
@@ -52,7 +52,7 @@ def main():
         if choice == '1':
             show_balance(balance)
         elif choice == '2':
-            balance += deposit(balance)
+            balance += deposit()
         elif choice == '3':
             balance -= withdraw(balance)
         elif choice == '4':

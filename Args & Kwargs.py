@@ -31,7 +31,7 @@ def display_name(*name):
         print(i, end=" ") # keyword arg (end) = with space in every arg
 
 display_name("MR.","RENCY","DELOS SANTOS","POGI")
-
+print()
 
 #-----------------------------------------------------------------------------------------------------------------------
 # KWARGS
@@ -61,7 +61,7 @@ my_info("MR.","RENCY","CELESTINO","DELOS SANTOS",
         barangay="IPAG",
         municipality="MARIVELES",
         province="BATAAN")
-
+print()
 
 def bebi(*args, **kwargs):
     for arg in args:
@@ -87,3 +87,4 @@ bebi("MRS.","BABY","RUTH","FEDELINO","REYES",
      street="JP Rizal",
      municipality2="BALANGA",
      )
+

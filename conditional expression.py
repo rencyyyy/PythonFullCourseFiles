@@ -1,5 +1,5 @@
-#Conditional Expression = Au one-line shortcut for the if-else statement (ternary operator)
-#                         Print or assign one of two vales based on a condtion
+#Conditional Expression = A one-line shortcut for the if-else statement (ternary operator)
+#                         Print or assign one of two vales based on a condition
 #                         X if condition else Y
 
 # Check if the number is positive or negative number

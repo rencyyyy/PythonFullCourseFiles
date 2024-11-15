@@ -1,4 +1,4 @@
-# While Loop - execute some code WHILE some condition remains trur
+# While Loop - execute some code WHILE some condition remains true
 
 name = input("Enter your name: ")
 

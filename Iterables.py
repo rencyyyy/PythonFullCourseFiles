@@ -19,7 +19,7 @@ print()
 
 sets = {"Apple", "Banana", "Coconut"} # NOT REVERSIBLE
 
-for set in (sets):
+for set in sets:
     print(set, end=" ")
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -49,3 +49,4 @@ print()
 
 for key,values in reversed(dictionary.items()):  #  REVERSIBLE
     print(f"{key.lower():<5} = {values:>8.2f}")
+

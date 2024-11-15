@@ -24,3 +24,4 @@ name = bool(name)               #string to boolean. And if the variable is empty
 print(name)
 empty_name = bool(empty_name)   #string to boolean
 print(empty_name)
+

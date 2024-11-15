@@ -6,14 +6,14 @@ fruits = ["Apple", "Orange", "Banana", "Pineapple"]
 
 #-----------------------------------------------------------------------------------------
 
-# for fruit in fruits:
-#     print(fruit)
+for fruit in fruits:
+    print(fruit)
 
 #-----------------------------------------------------------------------------------------
 
-# for fruit in fruits:
-#     print(fruit, end=" ")
-
+for fruit in fruits:
+    print(fruit, end=" ")
+print()
 #-----------------------------------------------------------------------------------------
 
 print(len(fruits))             # How many index inside of a fruit list

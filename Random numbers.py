@@ -26,9 +26,10 @@ import random                             # Importing random module
 # print(pick)                          # value within collection.
 #-----------------------------------------------------------------------------------------------------------------------
 
-# Display a list of values into a shuffle order. [List but unordered. WOW] set?
+#Display a list of values into a shuffle order. [List but unordered. WOW] set?
 # cards = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 # random.shuffle(cards) # By using shuffle u will be able to display a list into a shuffle order.
+# print(cards)
 
 
 

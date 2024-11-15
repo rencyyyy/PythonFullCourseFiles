@@ -1,5 +1,5 @@
-# Shopping cart program
-
+# # Shopping cart program
+#
 items = []
 prices = []
 total = 0
@@ -20,4 +20,6 @@ print("---------------------------")
 for price in prices:
     total += price
 print(f"TOTAL: ₱{total:,.2f}")
+
+
 
