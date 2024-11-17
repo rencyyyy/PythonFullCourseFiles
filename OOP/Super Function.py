@@ -52,4 +52,4 @@ print(triangle.color)
 print(triangle.is_filled)
 print(triangle.width)
 triangle.describe()
-
+print()
