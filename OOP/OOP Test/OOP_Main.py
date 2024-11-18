@@ -130,30 +130,67 @@
 # triangle.description()
 
 #-----------------------------------------------------------------------------------------------------------------------\
-# DUCK TYPING
+# # DUCK TYPING
+#
+# class Vehicle:
+#     have_license = True
+#
+# class Car(Vehicle):
+#     def drive(self):
+#         print("The car is accelerating")
+#
+# class Motorcycle(Vehicle):
+#
+#     def drive(self):
+#         print("The motorcycle is accelerating")
+# class Bike:                             # THIS CLASS MUST MEET OR HAVE ATTRIBUTES AND METHOD OF EVERY CLASS
+#     have_license = False                # SO THAT IT BE CONSIDERED BELONG TO THE VEHICLE OBJECT
+#                                         # IF NOT - THEN U MUST NOT ADD IT TO VEHICLE OBJECT BELOW.
+#     def drive(self):
+#         print("The man is moving using a bike")
+#
+#     # def padyak(self):                 # ORIGINAL METHOD
+#     #     print("The man is moving using a bike")
+#
+# vehicles = [Car(),Motorcycle(), Bike()] # OBJECT = vehicles
+#
+# for vehicle in vehicles:
+#     vehicle.drive()
+#     print(vehicle.have_license)
 
-class Vehicle:
-    have_license = True
+#-----------------------------------------------------------------------------------------------------------------------
+# CLASS METHOD
+# class Student:
+#
+#     count = 0
+#     total_average = 0
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student.count += 1
+#         Student.total_average += gpa
+#
+#     def get_info(self):
+#         return f"{self.name} {self.gpa}"
+#
+#     @classmethod
+#     def get_count(cls):
+#         return f"The total # of student is {Student.count}"
+#
+#     @classmethod
+#     def get_total_average(cls):
+#         if cls.count == 0:
+#             return 0
+#         else:
+#             return f"Total average {Student.total_average / Student.count:.2f}"
+#
+#
+# student1 = Student(name="Rency", gpa=1.5)
+# student2 = Student(name="Jose", gpa=1.0)
+# student3 = Student(name="Blumentritt", gpa=1.2)
+# student4 = Student(name="Paciano", gpa=1.4)
+#
+# # print(Student.get_info(student3))
+# print(Student.get_count())
+# print(Student.get_total_average())
 
-class Car(Vehicle):
-    def drive(self):
-        print("The car is accelerating")
-
-class Motorcycle(Vehicle):
-
-    def drive(self):
-        print("The motorcycle is accelerating")
-class Bike:                             # THIS CLASS MUST MEET OR HAVE ATTRIBUTES AND METHOD OF EVERY CLASS
-    have_license = False                # SO THAT IT BE CONSIDERED BELONG TO THE VEHICLE OBJECT
-                                        # IF NOT - THEN U MUST NOT ADD IT TO VEHICLE OBJECT BELOW.
-    def drive(self):
-        print("The man is moving using a bike")
-
-    # def padyak(self):                 # ORIGINAL METHOD
-    #     print("The man is moving using a bike")
-
-vehicles = [Car(),Motorcycle(), Bike()] # OBJECT = vehicles
-
-for vehicle in vehicles:
-    vehicle.drive()
-    print(vehicle.have_license)
