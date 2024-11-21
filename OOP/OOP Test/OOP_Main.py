@@ -236,75 +236,88 @@
 #-----------------------------------------------------------------------------------------------------------------------
 
 # MAGIC METHOD
-class Book:
+# class Book:
+#
+#     def __init__(self, title, author, num_pages):
+#         self.title = title
+#         self.author = author
+#         self.num_pages = num_pages
+#
+#     def __str__(self):
+#         return f"'{self.title}' by {self.author}"
+#
+#     def __eq__(self, other):
+#         return self.title == other.title and self.author == other.author    # TRUE
+#
+#       # return self.title == other.title and self.author == other.author    # FALSE
+#
+#     def __lt__(self, other):
+#         return self.num_pages < other.num_pages
+#
+#     def __gt__(self, other):
+#         return self.num_pages > other.num_pages
+#
+#     def __contains__(self, keyword):
+#         return keyword in self.title or keyword in self.author
+#
+#     def __getitem__(self, item):
+#         if item == "Title":
+#             return self.title
+#         if item == "Nag sulat":
+#             return self.author
+#         if item == "Bilang ng pahina":
+#             return self.num_pages
+#
+# book1 = Book("Noli Me Tangere","Jose Rizal", 400)
+# book2 = Book("El Filibusterismo","Jose Rizal", 350)
+# book3 = Book("Buhat at mga Sulat ni Rizal","Jose P. Santos", 450)
+#
+# # print(book1) #<__main__.Book object at 0x00000243EB59D640>
+#
+# # __str__
+# print(book1)
+# print(book2)
+# print(book3)
+#
+# # __eq__
+# print(book1 == book2)
+#
+# # __lt__
+# print(book2 < book3)
+#
+# # __gt__
+# print(book1 > book3)
+#
+# # __contains__
+# print("El Filibusterismo" in book1)
+# print("El Noli" in book3)
+# print("Jose Rizal" in book3)
+#
+# # __getitem__
+# print(book1["Title"])
+# print(book1["Nag sulat"])
+# print(book1["Bilang ng pahina"])
+#
+# print(book2["Title"])
+# print(book2["Nag sulat"])
+# print(book2["Bilang ng pahina"])
+#
+# print(book3["Title"])
+# print(book3["Nag sulat"])
+# print(book3["Bilang ng pahina"])
 
-    def __init__(self, title, author, num_pages):
-        self.title = title
-        self.author = author
-        self.num_pages = num_pages
+#-----------------------------------------------------------------------------------------------------------------------
 
-    def __str__(self):
-        return f"'{self.title}' by {self.author}"
 
-    def __eq__(self, other):
-        return self.title == other.title and self.author == other.author    # TRUE
 
-      # return self.title == other.title and self.author == other.author    # FALSE
 
-    def __lt__(self, other):
-        return self.num_pages < other.num_pages
 
-    def __gt__(self, other):
-        return self.num_pages > other.num_pages
 
-    def __contains__(self, keyword):
-        return keyword in self.title or keyword in self.author
 
-    def __getitem__(self, item):
-        if item == "Title":
-            return self.title
-        if item == "Nag sulat":
-            return self.author
-        if item == "Bilang ng pahina":
-            return self.num_pages
 
-book1 = Book("Noli Me Tangere","Jose Rizal", 400)
-book2 = Book("El Filibusterismo","Jose Rizal", 350)
-book3 = Book("Buhat at mga Sulat ni Rizal","Jose P. Santos", 450)
 
-# print(book1) #<__main__.Book object at 0x00000243EB59D640>
 
-# __str__
-print(book1)
-print(book2)
-print(book3)
 
-# __eq__
-print(book1 == book2)
-
-# __lt__
-print(book2 < book3)
-
-# __gt__
-print(book1 > book3)
-
-# __contains__
-print("El Filibusterismo" in book1)
-print("El Noli" in book3)
-print("Jose Rizal" in book3)
-
-# __getitem__
-print(book1["Title"])
-print(book1["Nag sulat"])
-print(book1["Bilang ng pahina"])
-
-print(book2["Title"])
-print(book2["Nag sulat"])
-print(book2["Bilang ng pahina"])
-
-print(book3["Title"])
-print(book3["Nag sulat"])
-print(book3["Bilang ng pahina"])
 
 
 
