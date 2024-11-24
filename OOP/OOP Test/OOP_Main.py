@@ -357,30 +357,46 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-# DECORATOR
+# # DECORATOR
+#
+# def add_recognition(func):
+#     def wrapper(*args, **kwargs):
+#         print("Cum Laude 🎓")
+#         func(*args, **kwargs)
+#     return wrapper
+# def add_honors(func):
+#     def wrapper(*args, **kwargs):
+#         print("Dean's List 🐐")
+#         func(*args, **kwargs)
+#     return wrapper
+# @add_recognition
+# @add_honors
+# def get_diploma(name):
+#     print(f"Diploma received by: {name} 📃")
+#
+# get_diploma("Rency")
 
-def add_recognition(func):
+#-----------------------------------------------------------------------------------------------------------------------
+
+def addHonor(func):
     def wrapper(*args, **kwargs):
-        print("Cum Laude 🎓")
+        print("CUM LAUDE SA PANAGINIP 📃")
         func(*args, **kwargs)
     return wrapper
-def add_honors(func):
+
+def addRecognition(func):
     def wrapper(*args, **kwargs):
-        print("Dean's List 🐐")
+        print("Best in wala ⭐")
         func(*args, **kwargs)
     return wrapper
-@add_recognition
-@add_honors
-def get_diploma(name):
-    print(f"Diploma received by: {name} 📃")
+@addHonor
+@addRecognition
+def Graduate(name, university, program, year):
+    print(f"{name} is graduated at {university}, of {program} in {year}")
 
-get_diploma("Rency")
+Graduate("Rency","PUP Bataan","BSIT",2025)
 
-
-
-
-
-
+#-----------------------------------------------------------------------------------------------------------------------
 
 
 
