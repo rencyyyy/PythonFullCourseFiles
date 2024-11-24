@@ -198,40 +198,36 @@
 
 # Class Method
 
-# class Student:
-#     count = 0
-#     total_gpa = 0
-#     def __init__(self, name, gpa):
-#         self.name = name
-#         self.gpa = gpa
-#         Student.count += 1
-#         Student.total_gpa += gpa
-#
-#     def get_info(self):
-#         return f"{self.name} = {self.gpa}"
-#
-#     @classmethod
-#     def get_count(cls):
-#         return f"The total number of students is {cls.count}"
-#     @classmethod
-#     def get_total_average(cls):
-#         if cls.count == 0:
-#             return 0
-#         else:
-#             return f"The total GPA is {Student.total_gpa / Student.count}"
-#
-# student1 = Student("Rency", 1.5)
-# student2 = Student("Gon", 1.0)
-# student3 = Student("Killua", 1.75)
-# student4 = Student("Biscuit", 1.75)
-#
-#
-# print(student1.get_info())
-# print(student2.get_info())
-# print(student3.get_info())
-# print(student4.get_info())
-# print(Student.get_count())
-# print(Student.get_total_average())
+class Student:
+    stud_count = 0
+    total_average = 0
+    def __init__(self, name, gpa):
+        self.name = name
+        self.gpa = gpa
+        Student.stud_count += 1
+        Student.total_average += gpa
+
+    def get_info(self):
+        return f"Student name: {self.name} | GPA: {self.gpa}"
+
+    @classmethod
+    def get_count(cls):
+        return f"The total number of students: {Student.stud_count}"
+
+    @classmethod
+    def get_average(cls):
+        if cls.stud_count == 0:
+            return 0
+        else:
+            return f"The total average of {Student.stud_count} students is {Student.total_average / Student.stud_count:.2f}"
+
+student1 = Student(name="Rency Delos Santos", gpa=1.25)
+student2 = Student(name="Jose Rizal", gpa=1.00)
+student3 = Student(name="Elon Musk", gpa=1.10)
+
+print(Student.get_info(student2))
+print(Student.get_count())
+print(Student.get_average())
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -378,23 +374,23 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-def addHonor(func):
-    def wrapper(*args, **kwargs):
-        print("CUM LAUDE SA PANAGINIP 📃")
-        func(*args, **kwargs)
-    return wrapper
-
-def addRecognition(func):
-    def wrapper(*args, **kwargs):
-        print("Best in wala ⭐")
-        func(*args, **kwargs)
-    return wrapper
-@addHonor
-@addRecognition
-def Graduate(name, university, program, year):
-    print(f"{name} is graduated at {university}, of {program} in {year}")
-
-Graduate("Rency","PUP Bataan","BSIT",2025)
+# def addHonor(func):
+#     def wrapper(*args, **kwargs):
+#         print("CUM LAUDE SA PANAGINIP 📃")
+#         func(*args, **kwargs)
+#     return wrapper
+#
+# def addRecognition(func):
+#     def wrapper(*args, **kwargs):
+#         print("Best in wala ⭐")
+#         func(*args, **kwargs)
+#     return wrapper
+# @addHonor
+# @addRecognition
+# def Graduate(name, university, program, year):
+#     print(f"{name} is graduated at {university}, of {program} in {year}")
+#
+# Graduate("Rency","PUP Bataan","BSIT",2025)
 
 #-----------------------------------------------------------------------------------------------------------------------
 
