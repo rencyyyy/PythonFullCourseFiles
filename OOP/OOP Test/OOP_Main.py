@@ -197,36 +197,36 @@
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Class Method
-class Student:
-    stud_count = 0
-    total_average = 0
-    def __init__(self, name, gpa):
-        self.name = name
-        self.gpa = gpa
-        Student.stud_count += 1
-        Student.total_average += gpa
-
-    def get_info(self):
-        return f"Student name: {self.name} | GPA: {self.gpa}"
-
-    @classmethod
-    def get_count(cls):
-        return f"The total number of students: {Student.stud_count}"
-
-    @classmethod
-    def get_average(cls):
-        if cls.stud_count == 0:
-            return 0
-        else:
-            return f"The total average of {Student.stud_count} students is {Student.total_average / Student.stud_count:.2f}"
-
-student1 = Student(name="Rency Delos Santos", gpa=1.25)
-student2 = Student(name="Jose Rizal", gpa=1.00)
-student3 = Student(name="Elon Musk", gpa=1.10)
-
-print(Student.get_info(student2))
-print(Student.get_count())
-print(Student.get_average())
+# class Student:
+#     stud_count = 0
+#     total_average = 0
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student.stud_count += 1
+#         Student.total_average += gpa
+#
+#     def get_info(self):
+#         return f"Student name: {self.name} | GPA: {self.gpa}"
+#
+#     @classmethod
+#     def get_count(cls):
+#         return f"The total number of students: {Student.stud_count}"
+#
+#     @classmethod
+#     def get_average(cls):
+#         if cls.stud_count == 0:
+#             return 0
+#         else:
+#             return f"The total average of {Student.stud_count} students is {Student.total_average / Student.stud_count:.2f}"
+#
+# student1 = Student(name="Rency Delos Santos", gpa=1.25)
+# student2 = Student(name="Jose Rizal", gpa=1.00)
+# student3 = Student(name="Elon Musk", gpa=1.10)
+#
+# print(Student.get_info(student2))
+# print(Student.get_count())
+# print(Student.get_average())
 
 #-----------------------------------------------------------------------------------------------------------------------
 
@@ -393,11 +393,47 @@ print(Student.get_average())
 
 #-----------------------------------------------------------------------------------------------------------------------
 
+from abc import ABC, abstractmethod
+import math
+class Shape:
 
+    @abstractmethod
+    def area(self):
+        pass
 
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
 
+    def area(self):
+        return math.pi * self.radius ** 2
 
+class Square(Shape):
 
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return self.base * self.height * 0.5
+
+class Pizza(Circle):
+
+    def __init__(self, toppings, radius):
+        self.toppings = toppings
+        super().__init__(radius)
+
+shapes = [Circle(radius=5), Square(side=6), Triangle(base=7, height=8), Pizza(toppings="pepperoni",radius=9)]
+
+for shape in shapes:
+    print(f"{shape.area():.2f}cm^2")
 
 
 
