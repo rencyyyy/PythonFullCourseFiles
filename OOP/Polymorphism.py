@@ -34,11 +34,11 @@ class Triangle(Shape):
     def area(self):
         return self.base * self.height * 0.5
 
-class Pizza(Circle):
+class Pizza(Circle):                    # Ininherit niya yung circle na class na may function na area (abstractmethod)
+                                        # kaya considered na siya na shape
     def __init__(self, topping, radius):
         self.topping = topping
         super().__init__(radius)
-
 
 shapes = [Circle(radius=4), Square(side=5), Triangle(base=6, height=7), Pizza("pepperoni", 15)]
 
