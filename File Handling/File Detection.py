@@ -33,3 +33,4 @@ if os.path.exists(absolute_file_path):
         print("That is a directory")
 else:
     print(f"That location '{absolute_file_path}' doesn't exist in your computer")
+

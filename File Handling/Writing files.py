@@ -76,6 +76,7 @@ except Exception:
     print("Something went wrong :(")
 
 
+
 # WRITEROW METHOD
 # The writerow method is used in Python's csv module to write a single row of data into a CSV file.
 #
