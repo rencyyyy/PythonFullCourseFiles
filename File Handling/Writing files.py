@@ -56,30 +56,30 @@
 #-----------------------------------------------------------------------------------------------------------------------
 # CSV FILES (Comma seperated values) - Common in spreadsheet of data like an Excel spreadsheet
 
-import csv
-
-employees = [
-            ["name","age","job"],               # Header row
-            ["Rency",21,"Cyber Security"],      # data rows
-            ["Juan",22,"Unemployed"],
-            ["Pedro",20,"Priest"]
-]
-
-csv_file_path = "DirectoryTest/csvWritingFile.csv"
-try:
-    with open(csv_file_path, "w", newline="") as file:     # Keyword argument newline="" empty string (To avoid spaces)
-        writer = csv.writer(file)                          # writer object created using csv.writer and pass the file
-        for row in employees:
-            writer.writerow(row)
-        print(f"CSV file '{csv_file_path}' was created")
-except Exception:
-    print("Something went wrong :(")
-
-# WRITEROW METHOD
-# The writerow method is used in Python's csv module to write a single row of data into a CSV file.
+# import csv
 #
-# Key Points:
-# Used With a CSV Writer Object: You first create a writer object using csv.writer() and then call writerow() on it.
-# Accepts an Iterable: The method takes an iterable (like a list, tuple, or any object you can loop through) as its argument. Each item in the iterable represents a cell in the row.
+# employees = [
+#             ["name","age","job"],               # Header row
+#             ["Rency",21,"Cyber Security"],      # data rows
+#             ["Juan",22,"Unemployed"],
+#             ["Pedro",20,"Priest"]
+# ]
+#
+# csv_file_path = "DirectoryTest/csvWritingFile.csv"
+# try:
+#     with open(csv_file_path, "w", newline="") as file:     # Keyword argument newline="" empty string (To avoid spaces)
+#         writer = csv.writer(file)                          # writer object created using csv.writer and pass the file
+#         for row in employees:
+#             writer.writerow(row)
+#         print(f"CSV file '{csv_file_path}' was created")
+# except Exception:
+#     print("Something went wrong :(")
+#
+# # WRITEROW METHOD
+# # The writerow method is used in Python's csv module to write a single row of data into a CSV file.
+# #
+# # Key Points:
+# # Used With a CSV Writer Object: You first create a writer object using csv.writer() and then call writerow() on it.
+# # Accepts an Iterable: The method takes an iterable (like a list, tuple, or any object you can loop through) as its argument. Each item in the iterable represents a cell in the row.
 
 
