@@ -218,3 +218,132 @@
 # print(book1["Pahina"])
 
 #-----------------------------------------------------------------------------------------------------------------------
+
+
+# def add_program(func):
+#     def wrapper(*arg, **kwargs):
+#         print("BSIT")
+#         func(*arg, **kwargs)
+#     return wrapper
+# def add_year(func):
+#     def wrapper(*arg, **kwargs):
+#         print("4TH YEAR")
+#         func(*arg, **kwargs)
+#     return wrapper
+# @add_year
+# @add_program
+# def full_name(name, surname):
+#     print(f"Hi my name is {name} {surname}")
+#
+# full_name("Rency","Delos Santos")
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+# class Book:
+#
+#     def __init__(self, title, author, pages):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+#     def __str__(self):
+#         return f"'{self.title}' by {self.author}"
+#     def __eq__(self, other):
+#         return self.title == other.title or self.author == other.author
+#
+#     def __lt__(self, other):
+#         return self.pages < other.pages
+#
+#     def __gt__(self, other):
+#         return self.pages > other.pages
+#
+#     def __add__(self, other):
+#         return self.pages + other.pages
+#
+#     def __contains__(self, item):
+#         return item in self.title or item in self.author
+#
+#     def __getitem__(self, item):
+#         if item == "Book title":
+#             return self.title
+#         elif item == "Book Author":
+#             return self.author
+#         elif item == "Book Pages":
+#             return self.pages
+#         else:
+#             print("There's no such item")
+#
+# book1 = Book(title="Noli Me Tangere", author="Jose P. Rizal", pages=400)
+# book2 = Book(title="El Filibusterismo", author="Jose P. Rizal", pages=350)
+# book3 = Book(title="Buhay ni Rizal", author="Jose P. Santos", pages=450)
+#
+# print(book1)
+#
+# print(book1 == book3)
+#
+# print(book1 < book3)
+#
+# print(book3 > book2)
+#
+# print(book3 + book2)
+#
+# print("Rency" in book3)
+#
+# print(book1["Book Author"])
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+# class Student:
+#     count = 0
+#     total_gpa = 0
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student.count += 1
+#         Student.total_gpa += gpa
+#
+#     def get_info(self):
+#         print(f"{self.name} = {self.gpa}")
+#
+#     @classmethod
+#     def get_count(cls):
+#         print(f"The total number of students is {Student.count}")
+#
+#     @classmethod
+#     def get_total_gpa(cls):
+#         if cls.count == 0:
+#             return 0
+#         else:
+#             print(f"The total GWA of {Student.count} students is {Student.total_gpa / Student.count}")
+#
+# student1 = Student("Rency", 1.50)
+# student2 = Student("Jose", 1.00)
+# student3 = Student("Pedro", 1.75)
+# student4 = Student("Juan", 2.75)
+#
+# print(student1.name)
+# print(student1.gpa)
+# student1.get_info()
+# student2.get_info()
+# Student.get_count()
+# Student.get_total_gpa()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+# class Employee:
+#     def __init__(self, name, position):
+#         self.name = name
+#         self.position = position
+#
+#     def get_info(self):
+#         return f"{self.name} is '{self.position}'"
+#
+#     @staticmethod
+#     def is_valid_position(position):
+#         valid_positions = ["Front-End", "Back-End", "Full-Stacks"]
+#         return position in valid_positions
+#
+# employee1 = Employee("Rency", "Software Engineer")
+#
+# print(employee1.get_info())
+# print(Employee.is_valid_position("Data Analyst"))
