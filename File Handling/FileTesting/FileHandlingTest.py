@@ -50,7 +50,7 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-import os
+# import os
 # import csv
 #
 # employees = [["name","age","job"],
@@ -69,4 +69,59 @@ import os
 #         print(f"The csv file '{file_path}' has been created")
 # except Exception:
 #     print("Something went wrong :(")
+
+#-----------------------------------------------------------------------------------------------------------------------
+# READING FILES
+
+# file_path = "TestDIR/writingFileTest.txt"
+#
+# try:
+#     with open(file=file_path, mode="r") as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError:
+#     print(f"That file '{file_path}' wasn't found")
+#-----------------------------------------------------------------------------------------------------------------------
+
+# file_path = "TestDIR/writingCollectionFileTest.txt"
+#
+# with open(file=file_path, mode="r") as file:
+#     content = file.read()
+#     print(content)
+
+#-----------------------------------------------------------------------------------------------------------------------
+# import json
+#
+# file_path = "TestDIR/writingJsonFile.json"
+#
+# try:
+#     with open(file=file_path, mode="r") as file:
+#         content = json.load(file)
+#         print(content)
+#         # To access specified value
+#         print(content["name"])
+#         print(content["job"])
+# except FileNotFoundError:
+#     print(f"That file '{file_path}' wasn't found")
+# except Exception:
+#     print("Something went wrong :(")
+
+#-----------------------------------------------------------------------------------------------------------------------
+# import csv
+#
+# file_path = "TestDIR/writingCsvFile.csv"
+#
+# try:
+#     with open(file=file_path, mode="r")as file:
+#         content = csv.reader(file)
+#         for line in content:
+#             # print(line)
+#             # To access specified column
+#             print(line[2])
+# except FileNotFoundError:
+#     print(f"That file '{file_path}' wasn't found")
+# except IndexError:
+#     print("That column is out of range!")
+
+
 
