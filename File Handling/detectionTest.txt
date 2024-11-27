@@ -1,1 +1,17 @@
-Hello World
+# NOTES
+                                                   |
+                WRITE                              |                    READ
+                                                   |          (always create an aobject)
+                                                   |
+.txt file is equal to file.write(text_data)        |   .txt file is equal to content = file.read()
+                                                   |
+.json file is equal to                             |   .json file is equal to
+json.dump(the json collection, file, indent=no.)   |   content = json.load(file)
+                                                   |
+                                                   |
+.csv file is equal to (Add an object writer -      |
+for csv module)                                    |   .csv file is equal to
+writer = csv.writer(file)                          |   content = csv.reader(file)
+   for row in employees:                           |      for line in content
+        writer.writerow(row)                       |           print(line)
+                                                   |
