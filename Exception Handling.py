@@ -2,7 +2,7 @@
 #             (ZeroDivisionError, Value Error, Type Error)
 #             1. try, 2. except, 3. finally
 
-#             VERY USEFUL TO DANGEROUS CODE THAT CAUSED AN ERROR
+#             VERY USEFUL TO DANGEROUS CODE THAT CAUSED ERROR
 
 try:
     number = int(input("Enter a number: "))
