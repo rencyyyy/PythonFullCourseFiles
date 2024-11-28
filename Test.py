@@ -583,9 +583,32 @@ import time
 # if __name__ == "__main__":
 #     main()
 
+#-----------------------------------------------------------------------------------------------------------------------
 
+# DATE & TIME
 
+import datetime
 
+date = datetime.date(2025,1,1)
+print(date)
+
+today = datetime.date.today()
+print(today)
+
+random_time = datetime.time(3,30,0)
+print(random_time)
+
+date_time_today = datetime.datetime.now()
+date_time_today = date_time_today.strftime("%H:%M:%S pm of %m-%d-%Y")
+print(date_time_today)
+
+target_datetime = datetime.datetime(2025,1,1, 12,0,1)
+current_datetime = datetime.datetime.now()
+
+if target_datetime < current_datetime:
+    print("Date and time has already passed")
+else:
+    print("Date and time has NOT passed")
 
 
 
