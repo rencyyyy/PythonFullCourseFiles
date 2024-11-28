@@ -27,6 +27,7 @@
 # print()
 # print("--------------------------")
 # print(f"TOTAL IS: P{total}")
+import csv
 import math
 import random
 import time
@@ -587,31 +588,119 @@ import time
 
 # DATE & TIME
 
-import datetime
+# import datetime
+#
+# date = datetime.date(2025,1,1)
+# print(date)
+#
+# today = datetime.date.today()
+# print(today)
+#
+# random_time = datetime.time(3,30,0)
+# print(random_time)
+#
+# date_time_today = datetime.datetime.now()
+# date_time_today = date_time_today.strftime("%H:%M:%S pm of %m-%d-%Y")
+# print(date_time_today)
+#
+# target_datetime = datetime.datetime(2025,1,1, 12,0,1)
+# current_datetime = datetime.datetime.now()
+#
+# if target_datetime < current_datetime:
+#     print("Date and time has already passed")
+# else:
+#     print("Date and time has NOT passed")
 
-date = datetime.date(2025,1,1)
-print(date)
+#-----------------------------------------------------------------------------------------------------------------------
 
-today = datetime.date.today()
-print(today)
+# import os
+# w = write
+# x = write (if already exist, error)
+# a = append (add something to file_path)
+# r = read
 
-random_time = datetime.time(3,30,0)
-print(random_time)
+# Create Relative file
+# file_path = "While Loop.py"
+#
+# if os.path.exists(file_path):
+#     print("The file is here")
+# else:
+#     print("That file is not here")
 
-date_time_today = datetime.datetime.now()
-date_time_today = date_time_today.strftime("%H:%M:%S pm of %m-%d-%Y")
-print(date_time_today)
+# text_collection = ["Hello", "Love", "Goodbye", "Again"]
+#
+# file_path = "test.txt"
+# try:
+#     with open(file=file_path, mode="a") as file:
+#         for text in text_collection:
+#             file.write("\n"+ text)
+#         print("Collection was created")
+# except FileExistsError:
+#     print("That file is already created")
 
-target_datetime = datetime.datetime(2025,1,1, 12,0,1)
-current_datetime = datetime.datetime.now()
+#------------------------------------------------
+# FILE WRITE JSON
+# import json
 
-if target_datetime < current_datetime:
-    print("Date and time has already passed")
-else:
-    print("Date and time has NOT passed")
+# employee = {
+#     'name': "Rency",
+#     'Position': "Software Engineer",
+#     'Company': "Accenture"
+# }
+#
+# file_path = "test.json"
+#
+# try:
+#     with open(file=file_path, mode="w") as file:
+#         json.dump(employee, file, indent=4)
+#         print("The json file was created")
+# except Exception:
+#     print("Something went wrong :( ")
+#------------------------------------------------
+# FILE READ JSON
+# import json
+# file_path = "test.json"
+#
+# try:
+#     with open(file=file_path, mode="r") as file:
+#         content = json.load(file)
+#         for line in content:
+#             print(line)
+# except Exception:
+#     print("Something went wrong :( ")
 
+#------------------------------------------------
+# FILE WRITE CSV
+# import csv
+# text_data = [
+#              ["Name", "Age","Position"],
+#              ["Gon",13,"Hunter"],
+#              ["Killua",13,"Hunter"],
+#              ["Biscuit",50,"Hunter"]
+# ]
+#
+# file_path = "test.csv"
+# try:
+#     with open(file=file_path, mode="w", newline="") as file:
+#         writer = csv.writer(file)
+#         for row in text_data:
+#             writer.writerow(row)
+#         print("CSV FILE WAS CREATED")
+# except Exception:
+#     print("Something went wrong")
 
+#------------------------------------------------
+# FILE READ CSV
 
+# file_path = "test.csv"
+#
+# try:
+#     with open(file=file_path, mode="r") as file:
+#         content = csv.reader(file)
+#         for line in content:
+#             print(line)
+# except Exception:
+#     print("Something went wrong")
 
 
 
