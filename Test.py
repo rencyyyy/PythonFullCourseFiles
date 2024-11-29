@@ -703,7 +703,34 @@ import time
 #     print("Something went wrong")
 
 #-----------------------------------------------------------------------------------------------------------------------
+import time
+import datetime
+import pygame
 
+def set_alarm(set_time):
+    print(f"Alarm has been set to {set_time}")
+    is_running = True
+    set_music = "Alarm_Music/Unlike Pluto - Time Is Eating [NCS Release].mp3"
+
+    while is_running:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        print(current_time)
+        if current_time == set_time:
+            print("It's time to wake up!🌞🛏️")
+            is_running = False
+
+            pygame.mixer.init()
+            pygame.mixer.music.load(set_music)
+            pygame.mixer.music.play()
+
+            while pygame.mixer.music.get_busy():
+                time.sleep(1)
+        time.sleep(1)
+if __name__ == "__main__":
+    set_time = input("Set your alarm (HH:MM:SS): ")
+    set_alarm(set_time)
+
+#-----------------------------------------------------------------------------------------------------------------------
 
 
 
