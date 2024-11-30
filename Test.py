@@ -703,34 +703,69 @@ import time
 #     print("Something went wrong")
 
 #-----------------------------------------------------------------------------------------------------------------------
-import time
-import datetime
-import pygame
-
-def set_alarm(set_time):
-    print(f"Alarm has been set to {set_time}")
-    is_running = True
-    set_music = "Alarm_Music/Unlike Pluto - Time Is Eating [NCS Release].mp3"
-
-    while is_running:
-        current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        print(current_time)
-        if current_time == set_time:
-            print("It's time to wake up!🌞🛏️")
-            is_running = False
-
-            pygame.mixer.init()
-            pygame.mixer.music.load(set_music)
-            pygame.mixer.music.play()
-
-            while pygame.mixer.music.get_busy():
-                time.sleep(1)
-        time.sleep(1)
-if __name__ == "__main__":
-    set_time = input("Set your alarm (HH:MM:SS): ")
-    set_alarm(set_time)
+# import time
+# import datetime
+# import pygame
+#
+# def set_alarm(set_time):
+#     print(f"Alarm has been set to {set_time}")
+#     is_running = True
+#     set_music = "Alarm_Music/Unlike Pluto - Time Is Eating [NCS Release].mp3"
+#
+#     while is_running:
+#         current_time = datetime.datetime.now().strftime("%H:%M:%S")
+#         print(current_time)
+#         if current_time == set_time:
+#             print("It's time to wake up!🌞🛏️")
+#             is_running = False
+#
+#             pygame.mixer.init()
+#             pygame.mixer.music.load(set_music)
+#             pygame.mixer.music.play()
+#
+#             while pygame.mixer.music.get_busy():
+#                 time.sleep(1)
+#         time.sleep(1)
+# if __name__ == "__main__":
+#     set_time = input("Set your alarm (HH:MM:SS): ")
+#     set_alarm(set_time)
 
 #-----------------------------------------------------------------------------------------------------------------------
+
+import threading
+import time
+
+
+def learning_python(name, surname):
+    time.sleep(5)
+    print(f"{name} {surname} finished learning python language")
+
+def learning_full_stacks(name):
+    time.sleep(10)
+    print(f"{name} finished learning Dr. Angela's Web Development Course")
+
+def developing_system(name):
+    time.sleep(3)
+    print(f"{name} made a complete system")
+
+# learning_python("Rency")
+# learning_full_stacks("Rency")
+# developing_system("Rency")
+
+learning1 = threading.Thread(target=learning_python, args=("Rency","Delos Santos"))
+learning1.start()
+
+learning2 = threading.Thread(target=learning_full_stacks, args=("Rency",))
+learning2.start()
+
+develop = threading.Thread(target=developing_system, args=("Rency",))
+develop.start()
+
+learning1.join()
+learning2.join()
+develop.join()
+
+print("All task has completed")
 
 
 
