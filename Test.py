@@ -27,10 +27,10 @@
 # print()
 # print("--------------------------")
 # print(f"TOTAL IS: P{total}")
-import csv
-import math
-import random
-import time
+# import csv
+# import math
+# import random
+# import time
 
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -732,40 +732,59 @@ import time
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-import threading
-import time
+# import threading
+# import time
+#
+#
+# def learning_python(name, surname):
+#     time.sleep(5)
+#     print(f"{name} {surname} finished learning python language")
+#
+# def learning_full_stacks(name):
+#     time.sleep(10)
+#     print(f"{name} finished learning Dr. Angela's Web Development Course")
+#
+# def developing_system(name):
+#     time.sleep(3)
+#     print(f"{name} made a complete system")
+#
+# # learning_python("Rency")
+# # learning_full_stacks("Rency")
+# # developing_system("Rency")
+#
+# learning1 = threading.Thread(target=learning_python, args=("Rency","Delos Santos"))
+# learning1.start()
+#
+# learning2 = threading.Thread(target=learning_full_stacks, args=("Rency",))
+# learning2.start()
+#
+# develop = threading.Thread(target=developing_system, args=("Rency",))
+# develop.start()
+#
+# learning1.join()
+# learning2.join()
+# develop.join()
+#
+# print("All task has completed")
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+try:
+    number = int(input("Enter a number: "))
+    print(1 / number)
+except ZeroDivisionError:                       # When u attempt to divide a number to zero
+    print("You cant divide by zero IDIOT!")
+except ValueError:                              # Attempt to typecast a value of a wrong data type
+    print("Invalid input, numbers only")
+except Exception:                               # Broad unseen error
+    print("Something went wrong and i don't know what it is")
+finally:                                        # Always execute regardless there is an exception or not (Cleanup)
+    print("Do some cleanup here")
 
 
-def learning_python(name, surname):
-    time.sleep(5)
-    print(f"{name} {surname} finished learning python language")
 
-def learning_full_stacks(name):
-    time.sleep(10)
-    print(f"{name} finished learning Dr. Angela's Web Development Course")
 
-def developing_system(name):
-    time.sleep(3)
-    print(f"{name} made a complete system")
 
-# learning_python("Rency")
-# learning_full_stacks("Rency")
-# developing_system("Rency")
-
-learning1 = threading.Thread(target=learning_python, args=("Rency","Delos Santos"))
-learning1.start()
-
-learning2 = threading.Thread(target=learning_full_stacks, args=("Rency",))
-learning2.start()
-
-develop = threading.Thread(target=developing_system, args=("Rency",))
-develop.start()
-
-learning1.join()
-learning2.join()
-develop.join()
-
-print("All task has completed")
 
 
 
