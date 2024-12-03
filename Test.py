@@ -31,8 +31,8 @@
 # import math
 # import random
 # import time
-
-
+import csv
+import json
 #-----------------------------------------------------------------------------------------------------------------------
 # import random
 # lowest_num = 1
@@ -769,17 +769,14 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-try:
-    number = int(input("Enter a number: "))
-    print(1 / number)
-except ZeroDivisionError:                       # When u attempt to divide a number to zero
-    print("You cant divide by zero IDIOT!")
-except ValueError:                              # Attempt to typecast a value of a wrong data type
-    print("Invalid input, numbers only")
-except Exception:                               # Broad unseen error
-    print("Something went wrong and i don't know what it is")
-finally:                                        # Always execute regardless there is an exception or not (Cleanup)
-    print("Do some cleanup here")
+
+
+
+
+
+
+
+
 
 
 
