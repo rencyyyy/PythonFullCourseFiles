@@ -780,20 +780,18 @@ def get_pokemon_info(name):
         pokemon_data = response.json()
         return pokemon_data
     else:
-        print(f"Data failed to retrieve {response.status_code}")
+        print("Data failed to retrieve")
 
 
 pokemon_name = "pikachu"
 pokemon_info = get_pokemon_info(pokemon_name)
 
 if pokemon_info:
-    print(f"Name: {pokemon_info["name"]}")
+    print(f"NAME: {pokemon_info["name"].capitalize()}")
     print(f"ID: {pokemon_info["id"]}")
-    print(f"HEIGHT: {pokemon_info["height"]}")
-    print(f"WEIGHT: {pokemon_info["weight"]}")
-    print(f"EXP: {pokemon_info["base_experience"]}")
-
-
+    print(f"BASE EXP: {pokemon_info["base_experience"]}")
+    print(f"HEIGHT: {pokemon_info["height"]}cm")
+    print(f"WEIGHT: {pokemon_info["weight"]}lbs")
 
 
 
