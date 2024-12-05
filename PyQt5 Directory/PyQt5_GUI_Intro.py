@@ -6,7 +6,7 @@ class MainWindow(QMainWindow):                                  # main window cl
     def __init__(self):                                         # Constructors of Main Window
         super().__init__()
         self.setWindowTitle("Intro GUI")                        # Set title of app
-        self.setWindowIcon(QIcon("icon.jpg"))                   # set icon
+        self.setWindowIcon(QIcon("Images/icon.jpg"))                   # set icon
         self.setGeometry(700,300,500,300)                       # set geometry | x, y (px) and width and height
 
 def main():                                                     # MAIN FUNCTION
