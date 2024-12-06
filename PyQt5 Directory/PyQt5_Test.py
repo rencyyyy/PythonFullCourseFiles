@@ -193,37 +193,98 @@
 
 #-----------------------------------------------------------------------------------------------------------------------
 
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
-from PyQt5.QtGui import QPixmap, QIcon
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setGeometry(700, 300, 500, 500)
-        self.setWindowIcon(QIcon("Images/icon.jpg"))
-        self.setWindowTitle("Inserting Image Testing")
-
-        label = QLabel(self)
-        label.setGeometry(0, 0, 250, 250)
-
-        pixmap = QPixmap("Images/Insert_Image.jpg")
-        label.setPixmap(pixmap)
-        label.setScaledContents(True)
-
-        label.setGeometry((self.width() - label.width()) // 2,
-                          (self.height() - label.height()) // 2,
-                          label.width(),
-                          label.height())
-
-def main():
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
-    sys.exit(app.exec_())
-
-if __name__ == '__main__':
-    main()
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+# from PyQt5.QtGui import QPixmap, QIcon
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(700, 300, 500, 500)
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.setWindowTitle("Inserting Image Testing")
+#
+#         label = QLabel(self)
+#         label.setGeometry(0, 0, 250, 250)
+#
+#         pixmap = QPixmap("Images/Insert_Image.jpg")
+#         label.setPixmap(pixmap)
+#         label.setScaledContents(True)
+#
+#         label.setGeometry((self.width() - label.width()) // 2,
+#                           (self.height() - label.height()) // 2,
+#                           label.width(),
+#                           label.height())
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+# from PyQt5.QtGui import QPixmap, QIcon, QFont
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("ICON, TEXT LABEL, AND IMAGES")
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.setGeometry(700, 300, 500, 500)
+#
+#         label = QLabel("HELLO WORLD, GOODBYE", self)
+#         label.setFont(QFont("Arial", 15))
+#         label.setGeometry(0,0,500,50)
+#         label.setStyleSheet("color: #fefae0;"
+#                             "background-color: #283618;"
+#                             "font-weight: bold;")
+#         label.setAlignment(Qt.AlignCenter)
+#
+#         imageLabel = QLabel(self)
+#         pixMap = QPixmap("Images/Maris.jpg")
+#         imageLabel.setPixmap(pixMap)
+#         imageLabel.setGeometry(0, 0, 250, 250)
+#         imageLabel.setScaledContents(True)
+#
+#         imageLabel.setGeometry((self.width() - imageLabel.width()) // 2,
+#                                (self.height() - imageLabel.height()) // 2,
+#                                imageLabel.width(),
+#                                imageLabel.height())
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
