@@ -267,7 +267,47 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+from PyQt5.QtGui import QIcon, QFont, QPixmap
+from PyQt5.QtCore import Qt
 
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Test")
+        self.setWindowIcon(QIcon("Images/icon.jpg"))
+        self.setGeometry(700, 300, 500, 500)
+
+        label = QLabel("Hello World, Goodbye", self)
+        label.setFont(QFont("Arial", 15))
+        label.setGeometry(0, 0, 500, 40)
+        label.setStyleSheet("color: #FFFFFF;"
+                            "background-color: #000000;"
+                            "font-weight: bold;")
+
+        label.setAlignment(Qt.AlignCenter)
+
+        image = QLabel(self)
+        pixmap = QPixmap("Images/Maris.jpg")
+        image.setPixmap(pixmap)
+        image.setGeometry(0, 0, 250, 250)
+        image.setScaledContents(True)
+
+        image.setGeometry((self.width() - image.width()) // 2,
+                          (self.height() - image.height()) // 2,
+                          image.width(),
+                          image.height())
+
+
+def main():
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    main()
 
 
 
