@@ -814,31 +814,7 @@ import json
 # if __name__ == '__main__':
 #     main()
 
-import time
-import datetime
-import pygame
 
-def set_clock(set_alarm):
-    print(f"ALARM SET TO {set_alarm}")
-    set_music = "Alarm_Music/Unlike Pluto - Time Is Eating [NCS Release].mp3"
-    is_running = True
-
-    while is_running:
-        current_time = datetime.datetime.now().strftime("%H:%M:%S")
-        print(current_time)
-        if set_alarm == current_time:
-            print("WAKE UP! 😎⛅")
-
-            pygame.mixer.init()
-            pygame.mixer.music.load(set_music)
-            pygame.mixer.music.play()
-            while pygame.mixer.music.get_busy():
-                time.sleep(1)
-            is_running = False
-        time.sleep(1)
-
-set_alarm = input("SET YOUR ALARM (HH:MM:SS): ")
-set_clock(set_alarm)
 
 
 
