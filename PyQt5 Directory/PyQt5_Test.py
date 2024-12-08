@@ -310,44 +310,81 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel,
+#                              QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
+# from PyQt5.QtGui import QIcon
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Lay out testing")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.initUI()
+#
+#     def initUI(self):
+#         central_widget = QWidget()
+#         self.setCentralWidget(central_widget)
+#
+#         label1 = QLabel("#1")
+#         label2 = QLabel("#2")
+#         label3 = QLabel("#3")
+#         label4 = QLabel("#4")
+#         label5 = QLabel("#5")
+#
+#         label1.setStyleSheet("background-color: red;")
+#         label2.setStyleSheet("background-color: yellow;")
+#         label3.setStyleSheet("background-color: green;")
+#         label4.setStyleSheet("background-color: blue;")
+#         label5.setStyleSheet("background-color: purple;")
+#
+#         grid = QGridLayout()
+#
+#         grid.addWidget(label1, 0, 0)
+#         grid.addWidget(label2, 0, 1)
+#         grid.addWidget(label3, 1, 0)
+#         grid.addWidget(label4, 1, 1)
+#         grid.addWidget(label5, 2, 3)
+#
+#         central_widget.setLayout(grid)
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
+
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel,
-                             QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Lay out testing")
-        self.setGeometry(700, 300, 500, 500)
-        self.setWindowIcon(QIcon("Images/icon.jpg"))
+        self.setWindowTitle("Button")
+        self.setGeometry(700,300,500,500)
+        self.button = QPushButton("Click me!", self)
+        self.label = QLabel("Hello!", self)
         self.initUI()
 
     def initUI(self):
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        self.button.setGeometry(150, 200, 200, 100)
+        self.button.setStyleSheet("font-size: 30px;")
+        # self.button.clicked.connect(self.on_click)
+        self.button.clicked.connect(self.on_click)
 
-        label1 = QLabel("#1")
-        label2 = QLabel("#2")
-        label3 = QLabel("#3")
-        label4 = QLabel("#4")
-        label5 = QLabel("#5")
+        self.label.setGeometry(150, 300, 200, 100)
+        self.label.setStyleSheet("font-size: 50px;")
 
-        label1.setStyleSheet("background-color: red;")
-        label2.setStyleSheet("background-color: yellow;")
-        label3.setStyleSheet("background-color: green;")
-        label4.setStyleSheet("background-color: blue;")
-        label5.setStyleSheet("background-color: purple;")
+    def on_click(self):
+        self.label.setText("Goodbye!")
+        # self.button.setDisabled(True)         Disabled after click
 
-        grid = QGridLayout()
-
-        grid.addWidget(label1, 0, 0)
-        grid.addWidget(label2, 0, 1)
-        grid.addWidget(label3, 1, 0)
-        grid.addWidget(label4, 1, 1)
-        grid.addWidget(label5, 2, 3)
-
-        central_widget.setLayout(grid)
 
 def main():
     app = QApplication(sys.argv)
@@ -357,10 +394,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
 
 
 
