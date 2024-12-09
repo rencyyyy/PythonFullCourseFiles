@@ -13,7 +13,6 @@ class MainWindow(QMainWindow):
     def initUI(self):
         self.button.setGeometry(150, 200, 200, 100)
         self.button.setStyleSheet("font-size: 30px;")
-        # self.button.clicked.connect(self.on_click)
         self.button.clicked.connect(self.on_click)
 
         self.label.setGeometry(150, 300, 200, 100)
