@@ -396,67 +396,112 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+
+#OVERALL TEST
+# import sys
+# from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel,
+#                              QVBoxLayout, QHBoxLayout, QGridLayout,
+#                              QWidget)
+# from PyQt5.QtGui import QIcon, QFont, QPixmap
+# from PyQt5.QtCore import Qt
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Test all")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.initUI()
+#
+#         header = QLabel("PyQt5 Test All", self)
+#         header.setGeometry(0, 0, 500, 50)
+#         header.setFont(QFont("Arial", 20))
+#         header.setStyleSheet("color: white;"
+#                              "background-color: green;"
+#                              "font-weight: bold;"
+#                              "font-style: italic;"
+#                              "text-decoration: underline;")
+#         header.setAlignment(Qt.AlignHCenter |Qt.AlignVCenter)
+#
+#         image = QLabel(self)
+#         pixmap = QPixmap("Images/Maris.jpg")
+#         image.setPixmap(pixmap)
+#
+#         image.setGeometry(0, 0, 250, 250)
+#         image.setScaledContents(True)
+#
+#         image.setGeometry((self.width() - image.width()) // 2,
+#                           (self.height() - image.height()) // 2,
+#                           image.width(),
+#                           image.height())
+#
+#     def initUI(self):
+#         central_widget = QWidget()
+#         self.setCentralWidget(central_widget)
+#
+#         redColor = QLabel("#1")
+#         yellowColor = QLabel("#2")
+#         greenColor = QLabel("#3")
+#         blueColor = QLabel("#4")
+#         purpleColor = QLabel("#5")
+#
+#         redColor.setStyleSheet("background-color: red;")
+#         yellowColor.setStyleSheet("background-color: yellow;")
+#         greenColor.setStyleSheet("background-color: green;")
+#         blueColor.setStyleSheet("background-color: blue;")
+#         purpleColor.setStyleSheet("background-color: purple;")
+#
+#         grid = QGridLayout()
+#         grid.addWidget(redColor, 0, 0)
+#         grid.addWidget(yellowColor, 0, 1)
+#         grid.addWidget(greenColor, 1, 0)
+#         grid.addWidget(blueColor, 1, 1)
+#         grid.addWidget(purpleColor, 2, 2)
+#
+#         central_widget.setLayout(grid)
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QLabel,
-                             QVBoxLayout, QHBoxLayout, QGridLayout,
-                             QWidget)
-from PyQt5.QtGui import QIcon, QFont, QPixmap
-from PyQt5.QtCore import Qt
+from PyQt5. QtWidgets import QMainWindow, QApplication, QPushButton, QLabel
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Test all")
+        self.setWindowTitle("PyQt5 Button Test")
         self.setGeometry(700, 300, 500, 500)
-        self.setWindowIcon(QIcon("Images/icon.jpg"))
+
+        self.button = QPushButton("Button", self)
+        self.greetings = QLabel("Hello", self)
+
+
         self.initUI()
 
-        header = QLabel("PyQt5 Test All", self)
-        header.setGeometry(0, 0, 500, 50)
-        header.setFont(QFont("Arial", 20))
-        header.setStyleSheet("color: white;"
-                             "background-color: green;"
-                             "font-weight: bold;"
-                             "font-style: italic;"
-                             "text-decoration: underline;")
-        header.setAlignment(Qt.AlignHCenter |Qt.AlignVCenter)
-
-        image = QLabel(self)
-        pixmap = QPixmap("Images/Maris.jpg")
-        image.setPixmap(pixmap)
-
-        image.setGeometry(0, 0, 250, 250)
-        image.setScaledContents(True)
-
-        image.setGeometry((self.width() - image.width()) // 2,
-                          (self.height() - image.height()) // 2,
-                          image.width(),
-                          image.height())
-
     def initUI(self):
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        self.button.setGeometry(150, 200, 200, 100)
+        self.button.setStyleSheet("font-size: 15px;")
+        self.button.clicked.connect(self.on_click)
 
-        redColor = QLabel("#1")
-        yellowColor = QLabel("#2")
-        greenColor = QLabel("#3")
-        blueColor = QLabel("#4")
-        purpleColor = QLabel("#5")
+        self.greetings.setGeometry(150, 300, 200, 100)
+        self.greetings.setStyleSheet("font-size: 20px;"
+                                     "font-style: italic;")
 
-        redColor.setStyleSheet("background-color: red;")
-        yellowColor.setStyleSheet("background-color: yellow;")
-        greenColor.setStyleSheet("background-color: green;")
-        blueColor.setStyleSheet("background-color: blue;")
-        purpleColor.setStyleSheet("background-color: purple;")
-
-        grid = QGridLayout()
-        grid.addWidget(redColor, 0, 0)
-        grid.addWidget(yellowColor, 0, 1)
-        grid.addWidget(greenColor, 1, 0)
-        grid.addWidget(blueColor, 1, 1)
-        grid.addWidget(purpleColor, 2, 2)
-
-        central_widget.setLayout(grid)
-
+    def on_click(self):
+        print("Button clicked!")
+        self.button.setText("clicked!")             # Change the text of the button when clicked
+        # self.button.setDisabled(True)             # When button clicked then disabled after
+        self.greetings.setText("Goodbye!")
+        self.greetings.setStyleSheet("font-weight: bold;"
+                                     "font-style: italic;"
+                                     "font-size: 20px;")
+        self.greetings.setGeometry(300, 300, 200, 100)
 def main():
     app = QApplication(sys.argv)
     window = MainWindow()
@@ -465,7 +510,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
 

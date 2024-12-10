@@ -1,26 +1,29 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Button")
-        self.setGeometry(700,300,500,500)
-        self.button = QPushButton("Click me!", self)
-        self.label = QLabel("Hello!", self)
-        self.initUI()
+        self.setWindowTitle("Push Button")
+        self.setGeometry(700, 300, 500, 500)
+        self.button = QPushButton("Click me", self)                      # Transfer button to constructor
+        self.label = QLabel("Hello", self)                               # Set text label
+        self.initUI()                                                    # Set initUI function to constructor
 
     def initUI(self):
-        self.button.setGeometry(150, 200, 200, 100)
-        self.button.setStyleSheet("font-size: 30px;")
-        self.button.clicked.connect(self.on_click)
+        self.button.setGeometry(150, 200, 200, 100)                      # Set geometry of the button
+        self.button.setStyleSheet("font-size: 15px;")                    # Set style of the button
+        self.button.clicked.connect(self.on_click)                       # send signal to the button (self.func)
 
-        self.label.setGeometry(150, 300, 200, 100)
-        self.label.setStyleSheet("font-size: 50px;")
+        self.label.setGeometry(150, 300, 200, 100)                       # set the geometry of the text label
+        self.label.setStyleSheet("font-size: 20px;")                     # set the font size of the text label
 
     def on_click(self):
-        self.label.setText("Goodbye!")
+        print("Button clicked!")                                         # print something when button clicked
+        self.button.setText("Clicked")                                   # change the text of the button
 
+        self.label.setGeometry(300, 300, 200, 100)                       # set geometry of the text labe
+        self.label.setText("Goodbye")                                    # change the text of the text label when button clicked
 
 def main():
     app = QApplication(sys.argv)
