@@ -469,39 +469,127 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5. QtWidgets import QMainWindow, QApplication, QPushButton, QLabel
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("PyQt5 Button Test")
+#         self.setGeometry(700, 300, 500, 500)
+#
+#         self.button = QPushButton("Button", self)
+#         self.greetings = QLabel("Hello", self)
+#
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#         self.button.setGeometry(150, 200, 200, 100)
+#         self.button.setStyleSheet("font-size: 15px;")
+#         self.button.clicked.connect(self.on_click)
+#
+#         self.greetings.setGeometry(150, 300, 200, 100)
+#         self.greetings.setStyleSheet("font-size: 20px;"
+#                                      "font-style: italic;")
+#
+#     def on_click(self):
+#         print("Button clicked!")
+#         self.button.setText("clicked!")             # Change the text of the button when clicked
+#         # self.button.setDisabled(True)             # When button clicked then disabled after
+#         self.greetings.setText("Goodbye!")
+#         self.greetings.setStyleSheet("font-weight: bold;"
+#                                      "font-style: italic;"
+#                                      "font-size: 20px;")
+#         self.greetings.setGeometry(300, 300, 200, 100)
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5. QtWidgets import QMainWindow, QApplication, QPushButton, QLabel
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton,
+                             QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
+from PyQt5.QtGui import QIcon, QFont, QPixmap
+from PyQt5.QtCore import Qt
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("PyQt5 Button Test")
-        self.setGeometry(700, 300, 500, 500)
+        self.setWindowTitle("Test all PyQt5")
+        self.setWindowIcon(QIcon("Images/icon.jpg"))
+        self.setGeometry(450, 150, 1000, 800)
 
-        self.button = QPushButton("Button", self)
-        self.greetings = QLabel("Hello", self)
+        title = QLabel("PyQt5 All Topics", self)
+        title.setFont(QFont("Times New Roman", 30))
+        title.setGeometry(0, 0, 1000, 80)
 
+        title.setStyleSheet("color: #FFFFFF;"
+                            "background-color: #000000;"
+                            "font-weight: bold;")
+
+        #title.setAlignment(Qt.AlignCenter)
+        title.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+
+        image = QLabel(self)
+        pixmap = QPixmap("Images/Maris.jpg")
+        image.setPixmap(pixmap)
+
+        image.setGeometry(0, 0, 500, 500)
+        image.setScaledContents(True)
+
+        image.setGeometry((self.width() - image.width()) // 2,
+                          (self.height() - image.height()) // 2,
+                          image.width(),
+                          image.height())
 
         self.initUI()
 
     def initUI(self):
-        self.button.setGeometry(150, 200, 200, 100)
-        self.button.setStyleSheet("font-size: 15px;")
-        self.button.clicked.connect(self.on_click)
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
 
-        self.greetings.setGeometry(150, 300, 200, 100)
-        self.greetings.setStyleSheet("font-size: 20px;"
-                                     "font-style: italic;")
+        label1 = QLabel("#1", self)
+        label2 = QLabel("#2", self)
+        label3 = QLabel("#3", self)
+        label4 = QLabel("#4", self)
+        label5 = QLabel("#5", self)
+
+        label1.setStyleSheet("background-color: red;")
+        label2.setStyleSheet("background-color: yellow;")
+        label3.setStyleSheet("background-color: green;")
+        label4.setStyleSheet("background-color: blue;")
+        label5.setStyleSheet("background-color: violet;")
+
+        grid = QGridLayout()
+
+        grid.addWidget(label1, 0, 0)
+        grid.addWidget(label2, 1, 0)
+        grid.addWidget(label3, 0, 1)
+        grid.addWidget(label4, 1, 2)
+        grid.addWidget(label5, 1, 1)
+
+        central_widget.setLayout(grid)
+
+        self.button = QPushButton("Button", self)
+        self.label = QLabel("HELLO!", self)
+
+        self.button.setGeometry(100, 100, 150, 80)
+        self.button.clicked.connect(self.on_click)
+        self.label.setGeometry(400, 400, 300, 50)
+        self.label.setStyleSheet("background-color: orange;")
 
     def on_click(self):
         print("Button clicked!")
-        self.button.setText("clicked!")             # Change the text of the button when clicked
-        # self.button.setDisabled(True)             # When button clicked then disabled after
-        self.greetings.setText("Goodbye!")
-        self.greetings.setStyleSheet("font-weight: bold;"
-                                     "font-style: italic;"
-                                     "font-size: 20px;")
-        self.greetings.setGeometry(300, 300, 200, 100)
+        self.button.setText("Clicked!")
+        self.label.setText("Goodbye")
+        self.label.setStyleSheet("background-color: purple;")
+
 def main():
     app = QApplication(sys.argv)
     window = MainWindow()
@@ -510,9 +598,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
 
 
 
