@@ -512,83 +512,117 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton,
+#                              QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
+# from PyQt5.QtGui import QIcon, QFont, QPixmap
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Test all PyQt5")
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.setGeometry(450, 150, 1000, 800)
+#
+#         title = QLabel("PyQt5 All Topics", self)
+#         title.setFont(QFont("Times New Roman", 30))
+#         title.setGeometry(0, 0, 1000, 80)
+#
+#         title.setStyleSheet("color: #FFFFFF;"
+#                             "background-color: #000000;"
+#                             "font-weight: bold;")
+#
+#         #title.setAlignment(Qt.AlignCenter)
+#         title.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+#
+#         image = QLabel(self)
+#         pixmap = QPixmap("Images/Maris.jpg")
+#         image.setPixmap(pixmap)
+#
+#         image.setGeometry(0, 0, 500, 500)
+#         image.setScaledContents(True)
+#
+#         image.setGeometry((self.width() - image.width()) // 2,
+#                           (self.height() - image.height()) // 2,
+#                           image.width(),
+#                           image.height())
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#         central_widget = QWidget()
+#         self.setCentralWidget(central_widget)
+#
+#         label1 = QLabel("#1", self)
+#         label2 = QLabel("#2", self)
+#         label3 = QLabel("#3", self)
+#         label4 = QLabel("#4", self)
+#         label5 = QLabel("#5", self)
+#
+#         label1.setStyleSheet("background-color: red;")
+#         label2.setStyleSheet("background-color: yellow;")
+#         label3.setStyleSheet("background-color: green;")
+#         label4.setStyleSheet("background-color: blue;")
+#         label5.setStyleSheet("background-color: violet;")
+#
+#         grid = QGridLayout()
+#
+#         grid.addWidget(label1, 0, 0)
+#         grid.addWidget(label2, 1, 0)
+#         grid.addWidget(label3, 0, 1)
+#         grid.addWidget(label4, 1, 2)
+#         grid.addWidget(label5, 1, 1)
+#
+#         central_widget.setLayout(grid)
+#
+#         self.button = QPushButton("Button", self)
+#         self.label = QLabel("HELLO!", self)
+#
+#         self.button.setGeometry(100, 100, 150, 80)
+#         self.button.clicked.connect(self.on_click)
+#         self.label.setGeometry(400, 400, 300, 50)
+#         self.label.setStyleSheet("background-color: orange;")
+#
+#     def on_click(self):
+#         print("Button clicked!")
+#         self.button.setText("Clicked!")
+#         self.label.setText("Goodbye")
+#         self.label.setStyleSheet("background-color: purple;")
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton,
-                             QWidget, QVBoxLayout, QHBoxLayout, QGridLayout)
-from PyQt5.QtGui import QIcon, QFont, QPixmap
+from PyQt5.QtWidgets import QMainWindow, QApplication, QCheckBox
 from PyQt5.QtCore import Qt
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Test all PyQt5")
-        self.setWindowIcon(QIcon("Images/icon.jpg"))
-        self.setGeometry(450, 150, 1000, 800)
-
-        title = QLabel("PyQt5 All Topics", self)
-        title.setFont(QFont("Times New Roman", 30))
-        title.setGeometry(0, 0, 1000, 80)
-
-        title.setStyleSheet("color: #FFFFFF;"
-                            "background-color: #000000;"
-                            "font-weight: bold;")
-
-        #title.setAlignment(Qt.AlignCenter)
-        title.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
-
-        image = QLabel(self)
-        pixmap = QPixmap("Images/Maris.jpg")
-        image.setPixmap(pixmap)
-
-        image.setGeometry(0, 0, 500, 500)
-        image.setScaledContents(True)
-
-        image.setGeometry((self.width() - image.width()) // 2,
-                          (self.height() - image.height()) // 2,
-                          image.width(),
-                          image.height())
-
+        self.setWindowTitle("Checkbox Testing")
+        self.setGeometry(700, 300, 500, 500)
+        self.checkbox = QCheckBox("Do you have a crush on me?", self)
         self.initUI()
-
     def initUI(self):
-        central_widget = QWidget()
-        self.setCentralWidget(central_widget)
+        self.checkbox.setGeometry(40, 200, 500, 50)
+        self.checkbox.setStyleSheet("font-family: Arial;"
+                                    "font-size: 30px;")
+        self.checkbox.setChecked(False)
+        self.checkbox.stateChanged.connect(self.checkbox_changed)
 
-        label1 = QLabel("#1", self)
-        label2 = QLabel("#2", self)
-        label3 = QLabel("#3", self)
-        label4 = QLabel("#4", self)
-        label5 = QLabel("#5", self)
-
-        label1.setStyleSheet("background-color: red;")
-        label2.setStyleSheet("background-color: yellow;")
-        label3.setStyleSheet("background-color: green;")
-        label4.setStyleSheet("background-color: blue;")
-        label5.setStyleSheet("background-color: violet;")
-
-        grid = QGridLayout()
-
-        grid.addWidget(label1, 0, 0)
-        grid.addWidget(label2, 1, 0)
-        grid.addWidget(label3, 0, 1)
-        grid.addWidget(label4, 1, 2)
-        grid.addWidget(label5, 1, 1)
-
-        central_widget.setLayout(grid)
-
-        self.button = QPushButton("Button", self)
-        self.label = QLabel("HELLO!", self)
-
-        self.button.setGeometry(100, 100, 150, 80)
-        self.button.clicked.connect(self.on_click)
-        self.label.setGeometry(400, 400, 300, 50)
-        self.label.setStyleSheet("background-color: orange;")
-
-    def on_click(self):
-        print("Button clicked!")
-        self.button.setText("Clicked!")
-        self.label.setText("Goodbye")
-        self.label.setStyleSheet("background-color: purple;")
+    def checkbox_changed(self, state):
+        if state == Qt.Checked:
+            print("I knew it")
+        else:
+            print("I'll touch myself na lang")
 
 def main():
     app = QApplication(sys.argv)
@@ -598,7 +632,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
 
 
