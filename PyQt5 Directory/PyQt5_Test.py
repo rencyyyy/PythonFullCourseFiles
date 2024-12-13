@@ -600,27 +600,74 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QCheckBox
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Checkbox Testing")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.checkbox = QCheckBox("Do you have a crush on me?", self)
+#         self.initUI()
+#     def initUI(self):
+#         self.checkbox.setGeometry(40, 200, 500, 50)
+#         self.checkbox.setStyleSheet("font-family: Arial;"
+#                                     "font-size: 30px;")
+#         self.checkbox.setChecked(False)
+#         self.checkbox.stateChanged.connect(self.checkbox_changed)
+#
+#     def checkbox_changed(self, state):
+#         if state == Qt.Checked:
+#             print("I knew it")
+#         else:
+#             print("I'll touch myself na lang")
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QCheckBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel, QCheckBox
 from PyQt5.QtCore import Qt
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Checkbox Testing")
+        self.setWindowTitle("Button test")
         self.setGeometry(700, 300, 500, 500)
-        self.checkbox = QCheckBox("Do you have a crush on me?", self)
+        self.button = QPushButton("Click me", self)
+        self.checkbox = QCheckBox("DO you have a crush on me?", self)
+        self.label = QLabel("Hello", self)
         self.initUI()
     def initUI(self):
-        self.checkbox.setGeometry(40, 200, 500, 50)
-        self.checkbox.setStyleSheet("font-family: Arial;"
-                                    "font-size: 30px;")
-        self.checkbox.setChecked(False)
-        self.checkbox.stateChanged.connect(self.checkbox_changed)
+        self.button.setGeometry(150, 200, 200, 100)
+        self.button.setStyleSheet("color: red;")
+        self.button.clicked.connect(self.on_click)
 
-    def checkbox_changed(self, state):
+
+        self.label.setGeometry(150, 300, 200, 100)
+        self.label.setStyleSheet("font-size: 30px;")
+        self.checkbox.setGeometry(10, 100, 400, 60)
+        self.checkbox.setStyleSheet("font-size: 20px")
+        self.checkbox.stateChanged.connect(self.on_change)
+
+    def on_click(self):
+        print("Button clicked!")
+        self.button.setText("clicked!")
+        self.button.setDisabled(True)
+        self.label.setText("Goodbye")
+
+    def on_change(self, state):
         if state == Qt.Checked:
-            print("I knew it")
+            print("I knew it!")
         else:
             print("I'll touch myself na lang")
 
@@ -632,9 +679,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
 
 
 
