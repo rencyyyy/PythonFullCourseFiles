@@ -634,53 +634,136 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel, QCheckBox
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Button test")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.button = QPushButton("Click me", self)
+#         self.checkbox = QCheckBox("DO you have a crush on me?", self)
+#         self.label = QLabel("Hello", self)
+#         self.initUI()
+#     def initUI(self):
+#         self.button.setGeometry(150, 200, 200, 100)
+#         self.button.setStyleSheet("color: red;")
+#         self.button.clicked.connect(self.on_click)
+#
+#
+#         self.label.setGeometry(150, 300, 200, 100)
+#         self.label.setStyleSheet("font-size: 30px;")
+#         self.checkbox.setGeometry(10, 100, 400, 60)
+#         self.checkbox.setStyleSheet("font-size: 20px")
+#         self.checkbox.stateChanged.connect(self.on_change)
+#
+#     def on_click(self):
+#         print("Button clicked!")
+#         self.button.setText("clicked!")
+#         self.button.setDisabled(True)
+#         self.label.setText("Goodbye")
+#
+#     def on_change(self, state):
+#         if state == Qt.Checked:
+#             print("I knew it!")
+#         else:
+#             print("I'll touch myself na lang")
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLabel, QCheckBox
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QMainWindow, QApplication, QRadioButton, QButtonGroup, QLabel
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Button test")
+        self.setWindowTitle("Radio Button Test")
         self.setGeometry(700, 300, 500, 500)
-        self.button = QPushButton("Click me", self)
-        self.checkbox = QCheckBox("DO you have a crush on me?", self)
-        self.label = QLabel("Hello", self)
+
+        #Payment Type
+        self.title1 = QLabel("Payment Type", self)
+        self.radio1 = QRadioButton("G-Cash",self)
+        self.radio2 = QRadioButton("Paymaya", self)
+        self.radio3 = QRadioButton("Paypal", self)
+        self.radio4 = QRadioButton("Mastercard", self)
+        self.radio5 = QRadioButton("Visa", self)
+
+        #Payment Method
+        self.title2 = QLabel("Payment Method", self)
+        self.radio6 = QRadioButton("In-Store", self)
+        self.radio7 = QRadioButton("Online", self)
+
+        #Group 2 radio button options
+        self.button_group_1 = QButtonGroup(self)
+        self.button_group_2 = QButtonGroup(self)
+
         self.initUI()
+
     def initUI(self):
-        self.button.setGeometry(150, 200, 200, 100)
-        self.button.setStyleSheet("color: red;")
-        self.button.clicked.connect(self.on_click)
+        self.title1.setGeometry(0, 0, 500, 60)
+        self.radio1.setGeometry(0, 50, 300, 50)
+        self.radio2.setGeometry(0, 100, 300, 50)
+        self.radio3.setGeometry(0, 150, 300, 50)
+        self.radio4.setGeometry(0, 200, 300, 50)
+        self.radio5.setGeometry(0, 250, 300, 50)
+
+        self.title2.setGeometry(0, 320, 500, 60)
+        self.radio6.setGeometry(0, 370, 300, 50)
+        self.radio7.setGeometry(0, 420, 300, 50)
+
+        self.title1.setStyleSheet("font-weight: bold;"
+                                  "font-family: Arial;"
+                                  "font-size: 30px;"
+                                  "padding: 10px;")
+        self.title2.setStyleSheet("font-weight: bold;"
+                                  "font-family: Arial;"
+                                  "font-size: 30px;"
+                                  "padding: 10px;")
+
+        self.setStyleSheet("QRadioButton{"
+                           "font-size: 30px;"
+                           "font-family: Arial;"
+                           "padding: 10px;"
+                           "}")
 
 
-        self.label.setGeometry(150, 300, 200, 100)
-        self.label.setStyleSheet("font-size: 30px;")
-        self.checkbox.setGeometry(10, 100, 400, 60)
-        self.checkbox.setStyleSheet("font-size: 20px")
-        self.checkbox.stateChanged.connect(self.on_change)
+        self.button_group_1.addButton(self.radio1)
+        self.button_group_1.addButton(self.radio2)
+        self.button_group_1.addButton(self.radio3)
+        self.button_group_1.addButton(self.radio4)
+        self.button_group_1.addButton(self.radio5)
 
-    def on_click(self):
-        print("Button clicked!")
-        self.button.setText("clicked!")
-        self.button.setDisabled(True)
-        self.label.setText("Goodbye")
+        self.button_group_2.addButton(self.radio6)
+        self.button_group_2.addButton(self.radio7)
 
-    def on_change(self, state):
-        if state == Qt.Checked:
-            print("I knew it!")
-        else:
-            print("I'll touch myself na lang")
+        self.radio1.toggled.connect(self.radio_onclick)
+        self.radio2.toggled.connect(self.radio_onclick)
+        self.radio3.toggled.connect(self.radio_onclick)
+        self.radio4.toggled.connect(self.radio_onclick)
+        self.radio5.toggled.connect(self.radio_onclick)
+        self.radio6.toggled.connect(self.radio_onclick)
+        self.radio7.toggled.connect(self.radio_onclick)
 
-def main():
+    def radio_onclick(self):
+        radio_button = self.sender()
+        if radio_button.isChecked():
+            print(f"{radio_button.text()} is selected")
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
-
-if __name__ == '__main__':
-    main()
-
-
 
 
 
