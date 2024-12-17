@@ -767,37 +767,221 @@
 
 
 #-----------------------------------------------------------------------------------------------------------------------
-import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLineEdit, QPushButton
+# import sys
+# from PyQt5.QtWidgets import QMainWindow, QApplication, QLineEdit, QPushButton
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("LINE EDIT TEST")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.line_edit = QLineEdit(self)
+#         self.button = QPushButton("Submit", self)
+#
+#         self.initUI()
+#     def initUI(self):
+#         self.line_edit.setGeometry(10, 10, 210, 40)
+#         self.line_edit.setStyleSheet("font-size: 20px;"
+#                                      "font-family: Arial;")
+#         self.button.setGeometry(220, 10, 100, 40)
+#         self.button.setStyleSheet("font-size: 20px;"
+#                                   "font-family: Arial;")
+#         self.button.clicked.connect(self.submit)
+#         self.line_edit.setPlaceholderText("Enter your name")
+#     def submit(self):
+#         text = self.line_edit.text()
+#         print(f"Hello, {text}")
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("LINE EDIT TEST")
-        self.setGeometry(700, 300, 500, 500)
-        self.line_edit = QLineEdit(self)
-        self.button = QPushButton("Submit", self)
+#-----------------------------------------------------------------------------------------------------------------------
+# TEST ALL UPDATE
 
-        self.initUI()
-    def initUI(self):
-        self.line_edit.setGeometry(10, 10, 210, 40)
-        self.line_edit.setStyleSheet("font-size: 20px;"
-                                     "font-family: Arial;")
-        self.button.setGeometry(220, 10, 100, 40)
-        self.button.setStyleSheet("font-size: 20px;"
-                                  "font-family: Arial;")
-        self.button.clicked.connect(self.submit)
-        self.line_edit.setPlaceholderText("Enter your name")
-    def submit(self):
-        text = self.line_edit.text()
-        print(f"Hello, {text}")
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
-    sys.exit(app.exec_())
-
+# import sys
+# from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel,
+#                              QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
+#                              QPushButton, QCheckBox, QRadioButton, QLineEdit,
+#                              QButtonGroup)
+# from PyQt5.QtGui import QFont, QIcon, QPixmap
+# from PyQt5.QtCore import Qt
+#
+# class MainWindow(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Test all update")
+#         self.setGeometry(700, 300, 500, 500)
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#
+#         # #LABEL
+#         # label = QLabel("TESTING ALL UPDATE", self)
+#         # label.setGeometry(0, 0, 500, 50)
+#         # label.setFont(QFont("Times New Roman", 20))
+#         # label.setStyleSheet("font-style: italic;"
+#         #                     "color: yellow;"
+#         #                     "background-color: blue;")
+#
+#         # label.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
+#
+#     #-----------------------------
+#         # #IMAGE
+#         # image = QLabel(self)
+#         # image.setGeometry(0, 0, 250, 250)
+#         # pixmap = QPixmap("Images/Maris.jpg")
+#         # image.setPixmap(pixmap)
+#         # image.setScaledContents(True)
+#         #
+#         # image.setGeometry((self.width() - image.width()) // 2,
+#         #                   (self.height() - image.height()) // 2,
+#         #                   image.width(),
+#         #                   image.height())
+#
+#     # -----------------------------
+#         # BUTTON
+#         # self.button = QPushButton("click me", self)
+#         # self.label = QLabel("Hello", self)
+#
+#     # -----------------------------
+#         # # CHECKBOX
+#         # self.check_box = QCheckBox("Crush mo ba ako?", self)
+#
+#     # -----------------------------
+#         # # RADIO BUTTON
+#         # self.button1 = QRadioButton("G-CASH", self)
+#         # self.button2 = QRadioButton("CRYPTO", self)
+#         # self.button3 = QRadioButton("PAYMAYA", self)
+#         #
+#         # self.button4 = QRadioButton("IN STORE", self)
+#         # self.button5 = QRadioButton("ONLINE", self)
+#         #
+#         # self.button_group1 = QButtonGroup(self)
+#         # self.button_group2 = QButtonGroup(self)
+#
+#     # -----------------------------
+#         # # LINE EDIT
+#         # self.line_edit = QLineEdit(self)
+#         # self.button = QPushButton("Submit", self)
+#         # self.initUI()
+#     def initUI(self):
+#         pass
+#
+#
+#         # self.line_edit.setGeometry(10, 10, 210, 60)
+#         # self.line_edit.setPlaceholderText("Enter your name...")
+#         # self.line_edit.setStyleSheet("font-size: 20px;"
+#         #                              "font-family: Arial;"
+#         #                              "font-style: italic;")
+#         #
+#         # self.button.setGeometry(220, 10, 100, 60)
+#         # self.button.setStyleSheet("font-size: 20px;"
+#         #                           "font-family: Arial;")
+#         # self.button.clicked.connect(self.on_submit)
+#
+#     # def on_submit(self):
+#     #     text = self.line_edit.text()
+#     #     print(f"Hello, {text}")
+#     # ----------------------------------------------------------------
+#         # central_widget = QWidget()
+#         # self.setCentralWidget(central_widget)
+#         #
+#         # label1 = QLabel("#1")
+#         # label2 = QLabel("#2")
+#         # label3 = QLabel("#3")
+#         # label4 = QLabel("#4")
+#         # label5 = QLabel("#5")
+#         #
+#         # label1.setStyleSheet("background-color: red;")
+#         # label2.setStyleSheet("background-color: yellow;")
+#         # label3.setStyleSheet("background-color: green;")
+#         # label4.setStyleSheet("background-color: blue;")
+#         # label5.setStyleSheet("background-color: purple;")
+#         #
+#         # grid = QGridLayout()
+#         #
+#         # grid.addWidget(label1, 0, 0)
+#         # grid.addWidget(label2, 0, 1)
+#         # grid.addWidget(label3, 1, 1)
+#         # grid.addWidget(label4, 1, 2)
+#         # grid.addWidget(label5, 2, 2)
+#         #
+#         # central_widget.setLayout(grid)
+#     # ----------------------------------------------------------------
+#         # self.button.setGeometry(10, 10, 100, 40)
+#         # self.button.setStyleSheet("font-family: Arial;"
+#         #                           "font-size: 20px")
+#         # self.label.setGeometry(150, 10, 150, 40)
+#         # self.label.setStyleSheet("color: red;"
+#         #                          "font-family: Arial;"
+#         #                          "font-style: underlined;"
+#         #                          "font-size: 30px;")
+#         # self.button.clicked.connect(self.on_click)
+#
+#         # self.check_box.setGeometry(0, 0, 300, 50)
+#         # self.check_box.setStyleSheet("font-family: Arial;"
+#         #                              "font-size: 30px;"
+#         #                              "padding: 10px")
+#         # self.check_box.stateChanged.connect(self.on_check)
+#     # ----------------------------------------------------------------
+#         # self.button1.setGeometry(0, 0, 300, 50)
+#         # self.button2.setGeometry(0, 50, 300, 50)
+#         # self.button3.setGeometry(0, 100, 300, 50)
+#         #
+#         # self.button4.setGeometry(0, 170, 300, 50)
+#         # self.button5.setGeometry(0, 220, 300, 50)
+#         #
+#         #
+#         # self.setStyleSheet("QRadioButton{"
+#         #                    "font-size: 30px;"
+#         #                    "font-family: Arial;"
+#         #                    "padding: 10px"
+#         #                    "}")
+#         #
+#         # self.button_group1.addButton(self.button1)
+#         # self.button_group1.addButton(self.button2)
+#         # self.button_group1.addButton(self.button3)
+#         #
+#         # self.button_group2.addButton(self.button4)
+#         # self.button_group2.addButton(self.button5)
+#         #
+#         # self.button1.toggled.connect(self.on_choose)
+#         # self.button2.toggled.connect(self.on_choose)
+#         # self.button3.toggled.connect(self.on_choose)
+#         # self.button4.toggled.connect(self.on_choose)
+#         # self.button5.toggled.connect(self.on_choose)
+#     # ----------------------------------------------------------------
+#     # def on_choose(self):
+#     #     radio_button = self.sender()
+#     #     if radio_button.isChecked():
+#     #         print(f"You choose {radio_button.text()}")
+#
+#     # ----------------------------------------------------------------
+#     # def on_check(self, state):
+#     #     if state == Qt.Checked:
+#     #         print("Alam ko.")
+#     #     else:
+#     #         print("I'll touch myself na lang")
+#     # ----------------------------------------------------------------
+#     # def on_click(self):
+#     #     self.button.setText("clicked")
+#     #     self.label.setText("Goodbye")
+#     #     self.label.setGeometry(150, 10, 150, 40)
+#     #     self.label.setStyleSheet("color: green;"
+#     #                              "font-family: Times New Roman;"
+#     #                              "font-size: 30px;")
+#     #     print("Button clicked!")
+#     #     self.button.setDisabled(True)
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     window = MainWindow()
+#     window.show()
+#     sys.exit(app.exec_())
+#
+# if __name__ == '__main__':
+#     main()
 
 
