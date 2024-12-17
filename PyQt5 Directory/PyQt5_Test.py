@@ -985,3 +985,70 @@
 #     main()
 
 
+#-----------------------------------------------------------------------------------------------------------------------
+import sys
+from PyQt5. QtWidgets import (QMainWindow, QApplication, QPushButton,
+                              QWidget, QHBoxLayout)
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("CSS Test")
+        self.button1 = QPushButton("RED", self)
+        self.button2 = QPushButton("GREEN", self)
+        self.button3 = QPushButton("BLUE", self)
+        self.initUI()
+    def initUI(self):
+        central_widget = QWidget()
+        self.setCentralWidget(central_widget)
+
+        hbox = QHBoxLayout()
+
+        hbox.addWidget(self.button1)
+        hbox.addWidget(self.button2)
+        hbox.addWidget(self.button3)
+        central_widget.setLayout(hbox)
+
+        self.button1.setObjectName("button1")
+        self.button2.setObjectName("button2")
+        self.button3.setObjectName("button3")
+
+        self.setStyleSheet("""
+            QPushButton{
+                font-size: 40px;
+                font-family: Times New Roman;
+                padding: 25px 75px;
+                margin: 25px 10px;
+                border: 2px solid;
+                border-radius: 5px;
+            }
+            QPushButton#button1{
+                background-color: #96031a;
+            }
+            QPushButton#button2{
+                background-color: #70e000;
+            }
+            QPushButton#button3{
+                background-color: #00a6fb;
+            }
+            
+            QPushButton#button1:hover{
+                background-color: #dd1c1a;
+            }
+            QPushButton#button2:hover{
+                background-color: #ccff33;
+            }
+            QPushButton#button3:hover{
+                background-color: #7fc8f8;
+            }
+        """)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())
+
+
+
+
