@@ -1117,6 +1117,50 @@
 #     main()
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
+# from PyQt5.QtCore import QTime, QTimer, Qt
+# from PyQt5.QtGui import QFont, QFontDatabase
+#
+# class DigitalClock(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.setWindowTitle("Digital Clock Test")
+#         self.time_label = QLabel(self)
+#         self.timer = QTimer(self)
+#
+#         self.initUI()
+#     def initUI(self):
+#         vbox = QVBoxLayout()
+#         vbox.addWidget(self.time_label)
+#         self.setLayout(vbox)
+#         self.time_label.setAlignment(Qt.AlignCenter)
+#
+#         self.time_label.setStyleSheet("font-size: 150px;"
+#                                       "color: #ffb627;")
+#         self.setStyleSheet("background-color: #0d1321;")
+#
+#         font_id = QFontDatabase.addApplicationFont("Font-uploaded/DS-DIGII.TTF")
+#         font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
+#
+#         my_font = QFont(font_family, 150)
+#         self.time_label.setFont(my_font)
+#
+#         self.timer.timeout.connect(self.update_time)
+#         self.timer.start()
+#         self.update_time()
+#     def update_time(self):
+#         current_time = QTime.currentTime().toString("hh:mm:ss AP")
+#         self.time_label.setText(current_time)
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     clock = DigitalClock()
+#     clock.show()
+#     sys.exit(app.exec_())
+
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt5.QtCore import QTime, QTimer, Qt
@@ -1125,40 +1169,37 @@ from PyQt5.QtGui import QFont, QFontDatabase
 class DigitalClock(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Digital Clock Test")
+        self.setWindowTitle("Digital Clock")
         self.time_label = QLabel(self)
         self.timer = QTimer(self)
 
         self.initUI()
     def initUI(self):
+        self.setGeometry(600, 400, 300, 100)
+        self.time_label.setAlignment(Qt.AlignCenter)
         vbox = QVBoxLayout()
         vbox.addWidget(self.time_label)
         self.setLayout(vbox)
-        self.time_label.setAlignment(Qt.AlignCenter)
-
         self.time_label.setStyleSheet("font-size: 150px;"
-                                      "color: #ffb627;")
-        self.setStyleSheet("background-color: #0d1321;")
+                                      "color: #52b788;")
+        self.setStyleSheet("background-color: #353535;")
 
         font_id = QFontDatabase.addApplicationFont("Font-uploaded/DS-DIGII.TTF")
         font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
-
         my_font = QFont(font_family, 150)
         self.time_label.setFont(my_font)
 
         self.timer.timeout.connect(self.update_time)
-        self.timer.start()
+        self.timer.start(1000)
         self.update_time()
     def update_time(self):
         current_time = QTime.currentTime().toString("hh:mm:ss AP")
         self.time_label.setText(current_time)
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     clock = DigitalClock()
     clock.show()
     sys.exit(app.exec_())
-
 
 
 
