@@ -814,8 +814,28 @@ import json
 # if __name__ == '__main__':
 #     main()
 #-----------------------------------------------------------------------------------------------------------------------
+# secret_number = 777
+#
+# print(
+#     """
+#     +================================+
+#     | Welcome to my game, muggle!    |
+#     | Enter an integer number        |
+#     | and guess what number I've     |
+#     | picked for you.                |
+#     | So, what is the secret number? |
+#     +================================+
+#     """)
+#
+# number = int(input("Enter the secret number: "))
+#
+# while number != secret_number:
+#     print(f"{number} was not a secret number")
+#
+#     number = int(input("Enter the secret number: "))
+# print(f"{number} is a secret number")
 
-
+#-----------------------------------------------------------------------------------------------------------------------
 
 
 

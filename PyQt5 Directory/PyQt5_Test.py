@@ -1203,16 +1203,121 @@
 
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import (QApplication, QLabel, QPushButton,
+#                              QWidget, QVBoxLayout, QHBoxLayout)
+# from PyQt5.QtCore import QTime, QTimer, Qt
+#
+# class StopWatch(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.time = QTime(0, 0, 0, 0)
+#         self.time_label = QLabel("00:00:00:00", self)
+#
+#         self.start_button = QPushButton("Start", self)
+#         self.stop_button = QPushButton("Stop", self)
+#         self.reset_button = QPushButton("Reset", self)
+#
+#         self.timer = QTimer(self)
+#         self.initUI()
+#     def initUI(self):
+#         self.setWindowTitle("STOP WATCH TEST")
+#         vbox = QVBoxLayout()
+#         vbox.addWidget(self.time_label)
+#         self.time_label.setAlignment(Qt.AlignCenter)
+#         self.setLayout(vbox)
+#
+#         hbox = QHBoxLayout()
+#         hbox.addWidget(self.start_button)
+#         hbox.addWidget(self.stop_button)
+#         hbox.addWidget(self.reset_button)
+#
+#         vbox.addLayout(hbox)
+#
+#         self.start_button.setObjectName("Start")
+#         self.stop_button.setObjectName("Stop")
+#         self.reset_button.setObjectName("Reset")
+#
+#         self.setStyleSheet("""
+#             QPushButton, QLabel{
+#                 padding: 15px;
+#                 font-family: calibri;
+#             }
+#             QLabel{
+#                 font-size: 120px;
+#                 color: #fca311;
+#                 background-color: #000000;
+#             }
+#             QPushButton{
+#                 font-size: 50px;
+#             }
+#
+#             QPushButton#Start{
+#                 background-color: #b5e48c;
+#             }
+#             QPushButton#Stop{
+#                 background-color: #9e2a2b;
+#             }
+#             QPushButton#Reset{
+#                 background-color: #457b9d;
+#             }
+#
+#             QPushButton#Start:hover{
+#                 background-color: #76c893;
+#             }
+#             QPushButton#Stop:hover{
+#                 background-color: #e5383b;
+#             }
+#             QPushButton#Reset:hover{
+#                 background-color: #4cc9f0;
+#             }
+#         """)
+#
+#         self.start_button.clicked.connect(self.start)
+#         self.stop_button.clicked.connect(self.stop)
+#         self.reset_button.clicked.connect(self.reset)
+#         self.timer.timeout.connect(self.update_display)
+#
+#     def start(self):
+#         self.timer.start(10)
+#
+#     def stop(self):
+#         self.timer.stop()
+#
+#     def reset(self):
+#         self.timer.stop()
+#         self.time = QTime(0, 0, 0, 0)
+#         self.time_label.setText(self.format_time(self.time))
+#
+#     def format_time(self, time):
+#         hours = time.hour()
+#         minutes = time.minute()
+#         seconds = time.second()
+#         milliseconds = time.msec() // 10
+#         return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:02}"
+#
+#     def update_display(self):
+#         self.time = self.time.addMSecs(10)
+#         self.time_label.setText(self.format_time(self.time))
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     stopwatch = StopWatch()
+#     stopwatch.show()
+#     sys.exit(app.exec_())
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
 from PyQt5.QtWidgets import (QApplication, QLabel, QPushButton,
                              QWidget, QVBoxLayout, QHBoxLayout)
+
 from PyQt5.QtCore import QTime, QTimer, Qt
+from PyQt5.QtGui import QIcon
 
 class StopWatch(QWidget):
     def __init__(self):
         super().__init__()
         self.time = QTime(0, 0, 0, 0)
-        self.time_label = QLabel("00:00:00:00", self)
+        self.time_label = QLabel("00:00:00.00", self)
 
         self.start_button = QPushButton("Start", self)
         self.stop_button = QPushButton("Stop", self)
@@ -1220,55 +1325,59 @@ class StopWatch(QWidget):
 
         self.timer = QTimer(self)
         self.initUI()
+
     def initUI(self):
-        self.setWindowTitle("STOP WATCH TEST")
+        self.setWindowTitle("STOP WATCH")
+        self.setWindowIcon(QIcon("Images/icon.jpg"))
+        self.time_label.setAlignment(Qt.AlignCenter)
         vbox = QVBoxLayout()
         vbox.addWidget(self.time_label)
-        self.time_label.setAlignment(Qt.AlignCenter)
         self.setLayout(vbox)
 
         hbox = QHBoxLayout()
         hbox.addWidget(self.start_button)
         hbox.addWidget(self.stop_button)
         hbox.addWidget(self.reset_button)
-
         vbox.addLayout(hbox)
 
-        self.start_button.setObjectName("Start")
-        self.stop_button.setObjectName("Stop")
-        self.reset_button.setObjectName("Reset")
+        self.start_button.setObjectName("start")
+        self.stop_button.setObjectName("stop")
+        self.reset_button.setObjectName("reset")
 
         self.setStyleSheet("""
-            QPushButton, QLabel{
-                padding: 15px;
+            QLabel, QPushButton{
+                padding: 30px;
                 font-family: calibri;
             }
             QLabel{
                 font-size: 120px;
-                color: #fca311;
-                background-color: #000000;
+                color: #eb5e28;
+                background-color: #252422;
             }
             QPushButton{
-                font-size: 50px;
+                font-size: 40px;
             }
             
-            QPushButton#Start{
-                background-color: #b5e48c;
+            QPushButton#start{
+                color: #f4f3ee;
+                background-color: #248232;
             }
-            QPushButton#Stop{
-                background-color: #9e2a2b;
+            QPushButton#stop{
+                color: #f4f3ee;
+                background-color: #8d0801;
             }
-            QPushButton#Reset{
-                background-color: #457b9d;
+            QPushButton#reset{
+                color: #f4f3ee;
+                background-color: #00509d;
             }
             
-            QPushButton#Start:hover{
-                background-color: #76c893;
+            QPushButton#start:hover{
+                background-color: #adc178;
             }
-            QPushButton#Stop:hover{
-                background-color: #e5383b;
+            QPushButton#stop:hover{
+                background-color: #bf4342;
             }
-            QPushButton#Reset:hover{
+            QPushButton#reset:hover{
                 background-color: #4cc9f0;
             }
         """)
@@ -1293,17 +1402,35 @@ class StopWatch(QWidget):
         hours = time.hour()
         minutes = time.minute()
         seconds = time.second()
-        milliseconds = time.msec() // 10
-        return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:02}"
+        millisecond = time.msec() // 10
+        return f"{hours:02}:{minutes:02}:{seconds:02}.{millisecond:02}"
 
     def update_display(self):
         self.time = self.time.addMSecs(10)
         self.time_label.setText(self.format_time(self.time))
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     stopwatch = StopWatch()
     stopwatch.show()
     sys.exit(app.exec_())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
