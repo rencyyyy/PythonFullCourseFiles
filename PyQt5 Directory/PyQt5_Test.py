@@ -1306,116 +1306,240 @@
 #     sys.exit(app.exec_())
 
 #-----------------------------------------------------------------------------------------------------------------------
+# import sys
+# from PyQt5.QtWidgets import (QApplication, QLabel, QPushButton,
+#                              QWidget, QVBoxLayout, QHBoxLayout)
+#
+# from PyQt5.QtCore import QTime, QTimer, Qt
+# from PyQt5.QtGui import QIcon
+#
+# class StopWatch(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.time = QTime(0, 0, 0, 0)
+#         self.time_label = QLabel("00:00:00.00", self)
+#
+#         self.start_button = QPushButton("Start", self)
+#         self.stop_button = QPushButton("Stop", self)
+#         self.reset_button = QPushButton("Reset", self)
+#
+#         self.timer = QTimer(self)
+#         self.initUI()
+#
+#     def initUI(self):
+#         self.setWindowTitle("STOP WATCH")
+#         self.setWindowIcon(QIcon("Images/icon.jpg"))
+#         self.time_label.setAlignment(Qt.AlignCenter)
+#         vbox = QVBoxLayout()
+#         vbox.addWidget(self.time_label)
+#         self.setLayout(vbox)
+#
+#         hbox = QHBoxLayout()
+#         hbox.addWidget(self.start_button)
+#         hbox.addWidget(self.stop_button)
+#         hbox.addWidget(self.reset_button)
+#         vbox.addLayout(hbox)
+#
+#         self.start_button.setObjectName("start")
+#         self.stop_button.setObjectName("stop")
+#         self.reset_button.setObjectName("reset")
+#
+#         self.setStyleSheet("""
+#             QLabel, QPushButton{
+#                 padding: 30px;
+#                 font-family: calibri;
+#             }
+#             QLabel{
+#                 font-size: 120px;
+#                 color: #eb5e28;
+#                 background-color: #252422;
+#             }
+#             QPushButton{
+#                 font-size: 40px;
+#             }
+#
+#             QPushButton#start{
+#                 color: #f4f3ee;
+#                 background-color: #248232;
+#             }
+#             QPushButton#stop{
+#                 color: #f4f3ee;
+#                 background-color: #8d0801;
+#             }
+#             QPushButton#reset{
+#                 color: #f4f3ee;
+#                 background-color: #00509d;
+#             }
+#
+#             QPushButton#start:hover{
+#                 background-color: #adc178;
+#             }
+#             QPushButton#stop:hover{
+#                 background-color: #bf4342;
+#             }
+#             QPushButton#reset:hover{
+#                 background-color: #4cc9f0;
+#             }
+#         """)
+#
+#         self.start_button.clicked.connect(self.start)
+#         self.stop_button.clicked.connect(self.stop)
+#         self.reset_button.clicked.connect(self.reset)
+#         self.timer.timeout.connect(self.update_display)
+#
+#     def start(self):
+#         self.timer.start(10)
+#
+#     def stop(self):
+#         self.timer.stop()
+#
+#     def reset(self):
+#         self.timer.stop()
+#         self.time = QTime(0, 0, 0, 0)
+#         self.time_label.setText(self.format_time(self.time))
+#
+#     def format_time(self, time):
+#         hours = time.hour()
+#         minutes = time.minute()
+#         seconds = time.second()
+#         millisecond = time.msec() // 10
+#         return f"{hours:02}:{minutes:02}:{seconds:02}.{millisecond:02}"
+#
+#     def update_display(self):
+#         self.time = self.time.addMSecs(10)
+#         self.time_label.setText(self.format_time(self.time))
+#
+#
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     stopwatch = StopWatch()
+#     stopwatch.show()
+#     sys.exit(app.exec_())
+
+#-----------------------------------------------------------------------------------------------------------------------
 import sys
-from PyQt5.QtWidgets import (QApplication, QLabel, QPushButton,
-                             QWidget, QVBoxLayout, QHBoxLayout)
+import requests
+from PyQt5. QtWidgets import (QApplication, QLabel, QPushButton, QLineEdit,
+                              QWidget, QVBoxLayout)
+from PyQt5. QtCore import Qt
+from PyQt5. QtGui import QIcon
 
-from PyQt5.QtCore import QTime, QTimer, Qt
-from PyQt5.QtGui import QIcon
-
-class StopWatch(QWidget):
+class WeatherApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.time = QTime(0, 0, 0, 0)
-        self.time_label = QLabel("00:00:00.00", self)
-
-        self.start_button = QPushButton("Start", self)
-        self.stop_button = QPushButton("Stop", self)
-        self.reset_button = QPushButton("Reset", self)
-
-        self.timer = QTimer(self)
+        self.city_label = QLabel("Enter city name: ", self)
+        self.city_input = QLineEdit(self)
+        self.get_weather_button = QPushButton("Check weather", self)
+        self.temperature_label = QLabel("70°F", self)
+        self.emoji_label = QLabel("🌦️", self)
+        self.description_label = QLabel("Sunny", self)
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle("STOP WATCH")
-        self.setWindowIcon(QIcon("Images/icon.jpg"))
-        self.time_label.setAlignment(Qt.AlignCenter)
+        self.setWindowTitle("Window app test")
+        self.setWindowIcon(QIcon("Images/img.png"))
+
+        self.city_label.setAlignment(Qt.AlignCenter)
+        self.city_input.setAlignment(Qt.AlignCenter)
+        self.temperature_label.setAlignment(Qt.AlignCenter)
+        self.emoji_label.setAlignment(Qt.AlignCenter)
+        self.description_label.setAlignment(Qt.AlignCenter)
+
         vbox = QVBoxLayout()
-        vbox.addWidget(self.time_label)
+        vbox.addWidget(self.city_label)
+        vbox.addWidget(self.city_input)
+        vbox.addWidget(self.get_weather_button)
+        vbox.addWidget(self.temperature_label)
+        vbox.addWidget(self.emoji_label)
+        vbox.addWidget(self.description_label)
         self.setLayout(vbox)
 
-        hbox = QHBoxLayout()
-        hbox.addWidget(self.start_button)
-        hbox.addWidget(self.stop_button)
-        hbox.addWidget(self.reset_button)
-        vbox.addLayout(hbox)
-
-        self.start_button.setObjectName("start")
-        self.stop_button.setObjectName("stop")
-        self.reset_button.setObjectName("reset")
+        self.city_label.setObjectName("city_label")
+        self.city_input.setObjectName("city_input")
+        self.get_weather_button.setObjectName("get_weather_button")
+        self.temperature_label.setObjectName("temperature_label")
+        self.emoji_label.setObjectName("emoji_label")
+        self.description_label.setObjectName("description_label")
 
         self.setStyleSheet("""
-            QLabel, QPushButton{
-                padding: 30px;
+            QLabel, QPushButton, QLineEdit{
                 font-family: calibri;
             }
-            QLabel{
-                font-size: 120px;
-                color: #eb5e28;
-                background-color: #252422;
-            }
-            QPushButton{
-                font-size: 40px;
-            }
             
-            QPushButton#start{
-                color: #f4f3ee;
-                background-color: #248232;
+            QLabel#city_label{
+                font-size: 20px;
             }
-            QPushButton#stop{
-                color: #f4f3ee;
-                background-color: #8d0801;
+            QLineEdit#city_input{
+                font-size: 30px;
+                font-weight: bold;
+                padding: 5px;
             }
-            QPushButton#reset{
-                color: #f4f3ee;
-                background-color: #00509d;
+            QPushButton#get_weather_button{
+                font-size: 20px;
             }
-            
-            QPushButton#start:hover{
-                background-color: #adc178;
+            QLabel#temperature_label{
+                font-size: 50px;
             }
-            QPushButton#stop:hover{
-                background-color: #bf4342;
+            QLabel#emoji_label{
+                font-size: 50px;
             }
-            QPushButton#reset:hover{
-                background-color: #4cc9f0;
+            QLabel#description_label{
+                font-size: 50px;
             }
         """)
+        self.get_weather_button.clicked.connect(self.get_weather)
+    def get_weather(self):
+        api_key = "751ee4b0321835ac5b40d533da1519ea"
+        city = self.city_input.text()
 
-        self.start_button.clicked.connect(self.start)
-        self.stop_button.clicked.connect(self.stop)
-        self.reset_button.clicked.connect(self.reset)
-        self.timer.timeout.connect(self.update_display)
+        try:
+            url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+            response = requests.get(url)
+            data = response.json()
 
-    def start(self):
-        self.timer.start(10)
+            if data["cod"] == 200:
+                print(self.display_weather(data))
 
-    def stop(self):
-        self.timer.stop()
+        except requests.exceptions.HTTPError as http_error:
+            match response.status_code:
+                case 400:
+                    print("Bad requests\nPlease check your input")
+                case 401:
+                    print("Unauthorized requests\nInvalid API key")
+                case 403:
+                    print("Forbidden\nAccess is denied")
+                case 404:
+                    print("Not Found\nCity not found")
+                case 500:
+                    print("Internal Server Error\nPlease try again later")
+                case 502:
+                    print("Bad Gateway\nInvalid response from the server")
+                case 503:
+                    print("Unavailable Service\nServer is down")
+                case 504:
+                    print("Gateway Timeout\nNo response from the server")
+                case _:
+                    print(f"HTTP Error Occured\n{http_error}")
 
-    def reset(self):
-        self.timer.stop()
-        self.time = QTime(0, 0, 0, 0)
-        self.time_label.setText(self.format_time(self.time))
+        except requests.exceptions.ConnectionError:
+            print("Connection Error:\nCheck your internet connection")
+        except requests.exceptions.Timeout:
+            print("Timeout Error:\nThe request timed out")
+        except requests.exceptions.TooManyRedirects:
+            print("Too many Redirects:\nCheck the URL")
+        except requests.exceptions.RequestException as req_error:
+            print(f"Request Error:\n{req_error}")
 
-    def format_time(self, time):
-        hours = time.hour()
-        minutes = time.minute()
-        seconds = time.second()
-        millisecond = time.msec() // 10
-        return f"{hours:02}:{minutes:02}:{seconds:02}.{millisecond:02}"
-
-    def update_display(self):
-        self.time = self.time.addMSecs(10)
-        self.time_label.setText(self.format_time(self.time))
-
+    def display_error(self, message):
+        pass
+    def display_weather(self, data):
+        print(data)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    stopwatch = StopWatch()
-    stopwatch.show()
+    weather_app = WeatherApp()
+    weather_app.show()
     sys.exit(app.exec_())
-
 
 
 
