@@ -11,7 +11,7 @@
 # REDUCE FUNCTION
 
 import functools
-print("\nTransfer list into one single result reduce()")
+print("\n\nTransfer list into one single result reduce()")
 list = ["H","E","L","L","O"," ","W","O","R","L","D"]
 greetings = functools.reduce(lambda x,y: x + y, list)
 print(greetings)
